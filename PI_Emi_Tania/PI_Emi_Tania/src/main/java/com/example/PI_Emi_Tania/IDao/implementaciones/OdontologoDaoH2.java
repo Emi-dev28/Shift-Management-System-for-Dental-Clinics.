@@ -1,8 +1,18 @@
 package com.example.PI_Emi_Tania.IDao.implementaciones;
 
-public class OdontologoDaoH2 <Odontologo>{
+import com.example.PI_Emi_Tania.IDao.H2Connection;
+import com.example.PI_Emi_Tania.IDao.IDao;
+import com.example.PI_Emi_Tania.entity.Odontologo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-    private static Logger LOGGER = LoggerFactory.getLogger(OdontologoDaoH2.class);
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class OdontologoDaoH2 implements IDao<Odontologo> {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(OdontologoDaoH2.class);
 
     @Override
     public Odontologo guardar(Odontologo odontologo) {

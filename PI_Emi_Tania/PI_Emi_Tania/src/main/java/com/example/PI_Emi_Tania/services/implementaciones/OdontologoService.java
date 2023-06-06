@@ -1,6 +1,9 @@
 package com.example.PI_Emi_Tania.services.implementaciones;
 
+import com.example.PI_Emi_Tania.IDao.IDao;
 import com.example.PI_Emi_Tania.entity.Odontologo;
+
+import java.util.List;
 
 public class OdontologoService {
     private IDao<Odontologo> odontologoIDao;
@@ -17,7 +20,7 @@ public class OdontologoService {
         return odontologoIDao.buscarPorId(id);
     }
 
-    public List<Odontologo> listarOdontologos() {
+    public List<Odontologo> listarTodos() {
         return odontologoIDao.listarTodos();
     }
 

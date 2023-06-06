@@ -1,6 +1,16 @@
 package com.example.PI_Emi_Tania.IDao.implementaciones;
 
-public class DomicilioDaoH2 implements IDao<Domicilio>{
+import com.example.PI_Emi_Tania.IDao.H2Connection;
+import com.example.PI_Emi_Tania.IDao.IDao;
+import com.example.PI_Emi_Tania.entity.Domicilio;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class DomicilioDaoH2 implements IDao<Domicilio> {
 
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DomicilioDaoH2.class);

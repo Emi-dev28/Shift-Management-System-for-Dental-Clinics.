@@ -12,7 +12,6 @@ public class Paciente {
     private Domicilio domicilio;
 
 
-
     public Paciente(int id, String nombre, String apellido, String dni, LocalDate fechaIngreso, Domicilio domicilio) {
         this.id = id;
         this.nombre = nombre;

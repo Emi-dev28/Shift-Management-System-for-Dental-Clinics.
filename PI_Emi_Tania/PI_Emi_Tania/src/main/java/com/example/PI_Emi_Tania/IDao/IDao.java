@@ -14,6 +14,8 @@ public interface IDao<T> {
     T buscarPorId(int id);
 
     //es un metodo generico, para reutilizar
-    T buscarPorCriterio(String criterio);
+
+
+    T actualizar(T t);
 
 }
