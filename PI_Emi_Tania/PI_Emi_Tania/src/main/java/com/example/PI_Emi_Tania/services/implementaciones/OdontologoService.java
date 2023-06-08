@@ -1,6 +1,6 @@
 package com.example.PI_Emi_Tania.services.implementaciones;
 
-import com.example.PI_Emi_Tania.IDao.IDao;
+import com.example.PI_Emi_Tania.Repository.IDao;
 import com.example.PI_Emi_Tania.entity.Odontologo;
 
 import java.util.List;

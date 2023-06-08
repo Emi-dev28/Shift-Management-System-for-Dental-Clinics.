@@ -1,6 +1,6 @@
 package com.example.PI_Emi_Tania.services.implementaciones;
 
-import com.example.PI_Emi_Tania.IDao.IDao;
+import com.example.PI_Emi_Tania.Repository.IDao;
 import com.example.PI_Emi_Tania.entity.Paciente;
 import com.example.PI_Emi_Tania.services.IPacienteService;
 import org.springframework.beans.factory.annotation.Autowired;

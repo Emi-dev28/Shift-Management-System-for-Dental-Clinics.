@@ -1,7 +1,7 @@
-package com.example.PI_Emi_Tania.IDao.implementaciones;
+package com.example.PI_Emi_Tania.Repository.implementaciones;
 
-import com.example.PI_Emi_Tania.IDao.H2Connection;
-import com.example.PI_Emi_Tania.IDao.IDao;
+import com.example.PI_Emi_Tania.Repository.H2Connection;
+import com.example.PI_Emi_Tania.Repository.IDao;
 import com.example.PI_Emi_Tania.entity.Domicilio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
