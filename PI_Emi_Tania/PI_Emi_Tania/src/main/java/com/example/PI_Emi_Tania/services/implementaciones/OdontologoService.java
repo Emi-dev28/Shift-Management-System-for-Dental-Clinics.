@@ -2,28 +2,43 @@ package com.example.PI_Emi_Tania.services.implementaciones;
 
 import com.example.PI_Emi_Tania.Repository.IDao;
 import com.example.PI_Emi_Tania.entity.Odontologo;
+import com.example.PI_Emi_Tania.services.IOdontologoService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class OdontologoService {
-    private IDao<Odontologo> odontologoIDao;
+@Service
+public class OdontologoService implements IOdontologoService {
 
+    private IDao<Odontologo> odontologoIDao; //crearlo para poder llamar a los metodos
+
+    //constructor
     public OdontologoService(IDao<Odontologo> odontologoIDao) {
         this.odontologoIDao = odontologoIDao;
     }
 
-    public Odontologo guardarOdontologo(Odontologo odontologo) {
-        return odontologoIDao.guardar(odontologo);
-    }
 
+    @Override
     public Odontologo buscarOdontologoPorId(int id) {
         return odontologoIDao.buscarPorId(id);
     }
 
-    public List<Odontologo> listarTodos() {
+    @Override
+    public List<Odontologo> listaDeOdontologos() {
         return odontologoIDao.listarTodos();
     }
 
+    @Override
+    public Odontologo registrarOdontologo(Odontologo odontologo) {
+        return odontologoIDao.guardar(odontologo);
+    }
+
+    @Override
+    public Odontologo actualizarOdontologo(Odontologo odontologo) {
+        return odontologoIDao.actualizar(odontologo);
+    }
+
+    @Override
     public void eliminarOdontologo(int id) {
         odontologoIDao.eliminar(id);
     }

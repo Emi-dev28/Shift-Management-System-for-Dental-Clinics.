@@ -167,33 +167,38 @@ public class PacienteDaoH2 implements IDao<Paciente> {
     @Override
     public Paciente actualizar(Paciente paciente) {
         Connection connection = null;
-        try{
+        try {
             connection = H2Connection.getConnection();
             connection.setAutoCommit(false);
             PreparedStatement ps = connection.prepareStatement("UPDATE PACIENTES SET NOMBRE = ?, APELLIDO = ?, DNI = ?, FECHA = ?, DOMICILIO_ID = ? WHERE ID = ?");
-            ps.setString(1,paciente.getNombre());
-            ps.setString(2,paciente.getApellido());
-            ps.setString(3,paciente.getDni());
+            ps.setString(1, paciente.getNombre());
+            ps.setString(2, paciente.getApellido());
+            ps.setString(3, paciente.getDni());
             ps.setDate(4, Date.valueOf(paciente.getFechaIngreso()));
             ps.setInt(5, paciente.getDomicilio().getId());
-            ps.setInt(6,paciente.getId());
+            ps.setInt(6, paciente.getId());
             ps.execute();
             connection.commit();
             LOGGER.info("Se ha actualizado el paciente con id" + paciente.getId() + ": " + paciente);
-        }catch(Exception e){
+        } catch (Exception e) {
             LOGGER.error(e.getMessage());
             e.printStackTrace();
-            try{
-            if(connection!=null) {
-                connection.rollback();
-                LOGGER.error("tuvimos un problema");
+            try {
+                if (connection != null) {
+                    connection.rollback();
+                    LOGGER.error("tuvimos un problema");
 
-            }}catch(Exception ex){
+                }
+            } catch (Exception ex) {
                 LOGGER.error((ex.getMessage()));
                 ex.printStackTrace();
             }
-        }finally {
-            try{connection.close();}catch(Exception exception){LOGGER.error(exception.getMessage());}
+        } finally {
+            try {
+                connection.close();
+            } catch (Exception exception) {
+                LOGGER.error(exception.getMessage());
+            }
 
         }
         return paciente;

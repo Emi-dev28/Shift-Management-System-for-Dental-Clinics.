@@ -155,9 +155,10 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
     }
 
     @Override
-    public Odontologo buscarPorCriterio(String criterio) {
+    public Odontologo actualizar(Odontologo odontologo) {
         return null;
     }
+
 
     private Odontologo crearObjetoOdontologo(ResultSet resultSet) throws SQLException {
         int id = resultSet.getInt("id");

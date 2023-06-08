@@ -163,7 +163,9 @@ public class DomicilioDaoH2 implements IDao<Domicilio> {
     }
 
     @Override
-    public Domicilio buscarPorCriterio(String criterio) {
+    public Domicilio actualizar(Domicilio domicilio) {
         return null;
     }
+
+
 }
