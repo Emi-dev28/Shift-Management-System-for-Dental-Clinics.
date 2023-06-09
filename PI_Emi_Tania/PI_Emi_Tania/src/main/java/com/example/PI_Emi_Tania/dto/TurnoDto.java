@@ -19,7 +19,8 @@ public class TurnoDto {
 
     public TurnoDto() {
     }
-    public static TurnoDto fromTurno(Turno turno){
+
+    public static TurnoDto fromTurno(Turno turno) {
         String paciente = turno.getPaciente().getNombre() + " " + turno.getPaciente().getApellido();
         String odontologo = turno.getOdontologo().getNombre() + "" + turno.getOdontologo().getApellido();
         return new TurnoDto(paciente, odontologo, turno.getFechaYHora());
