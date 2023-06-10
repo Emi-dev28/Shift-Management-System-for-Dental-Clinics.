@@ -1,9 +1,7 @@
 package com.example.PI_Emi_Tania.controller;
 
 import com.example.PI_Emi_Tania.dto.PacienteDto;
-import com.example.PI_Emi_Tania.dto.TurnoDto;
 import com.example.PI_Emi_Tania.entity.Paciente;
-import com.example.PI_Emi_Tania.entity.Turno;
 import com.example.PI_Emi_Tania.services.IPacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,8 +33,13 @@ public class PacienteController {
     }
 
     @PostMapping("/actualizar")
-    public Paciente actualizar(@RequestBody Paciente paciente) {
-        return pacienteService.actualizar(paciente);
+    public ResponseEntity<PacienteDto> actualizar(@RequestBody Paciente paciente) {
+        ResponseEntity<PacienteDto> respuesta;
+        PacienteDto pacienteDto = pacienteService.actualizar(paciente);
+        if(pacienteDto != null) return respuesta = new ResponseEntity<>(pacienteDto,null,HttpStatus.OK);
+        else
+            respuesta = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        return respuesta;
     }
 
     @DeleteMapping("eliminar/{id}")
@@ -45,7 +48,7 @@ public class PacienteController {
     }
 
     @GetMapping
-    public List<Paciente> listar() {
+    public List<PacienteDto> listar() {
         return pacienteService.listarPacientes();
     }
 }
