@@ -5,7 +5,7 @@ import com.example.PI_Emi_Tania.entity.Turno;
 
 import java.util.List;
 
-public class TurnoIDao implements IDao<Turno> {
+public class TurnoDaoH2 implements IDao<Turno> {
 
     @Override
     public Turno guardar(Turno turno) {
