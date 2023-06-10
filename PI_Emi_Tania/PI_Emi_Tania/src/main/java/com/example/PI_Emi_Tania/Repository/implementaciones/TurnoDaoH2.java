@@ -14,15 +14,15 @@ import java.util.List;
 
 
 @Repository
-public class TurnoIDao implements IDao<Turno> {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TurnoIDao.class);
+public class TurnoDaoH2 implements IDao<Turno> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TurnoDaoH2.class);
     private final PacienteDaoH2 pacienteDaoH2;
     private final OdontologoDaoH2 odontologoDaoH2;
     private List<Turno> turnoList;
 
 
     @Autowired
-    public TurnoIDao(PacienteDaoH2 pacienteDaoH2, OdontologoDaoH2 odontologoDaoH2) {
+    public TurnoDaoH2(PacienteDaoH2 pacienteDaoH2, OdontologoDaoH2 odontologoDaoH2) {
         this.pacienteDaoH2 = pacienteDaoH2;
         this.odontologoDaoH2 = odontologoDaoH2;
         turnoList = new ArrayList<>();
