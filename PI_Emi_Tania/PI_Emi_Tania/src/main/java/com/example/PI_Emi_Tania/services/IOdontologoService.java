@@ -1,15 +1,16 @@
 package com.example.PI_Emi_Tania.services;
 
+import com.example.PI_Emi_Tania.dto.OdontologoDto;
 import com.example.PI_Emi_Tania.entity.Odontologo;
 
 import java.util.List;
 
 public interface IOdontologoService {
 
-    Odontologo buscarOdontologoPorId(int id);
+    OdontologoDto buscarOdontologoPorId(int id);
     List<Odontologo> listaDeOdontologos();
-    Odontologo registrarOdontologo(Odontologo odontologo);
-    Odontologo actualizarOdontologo (Odontologo odontologo);
+    OdontologoDto registrarOdontologo(Odontologo odontologo);
+    OdontologoDto actualizarOdontologo (Odontologo odontologo);
     void eliminarOdontologo(int id);
 
 }

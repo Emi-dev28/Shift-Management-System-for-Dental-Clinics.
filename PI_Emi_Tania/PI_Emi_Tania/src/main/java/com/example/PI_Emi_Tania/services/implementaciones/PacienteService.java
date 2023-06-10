@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PacienteService implements IPacienteService<PacienteDto>{
+public class PacienteService implements IPacienteService {
     private final IDao<Paciente> pacienteIDao;
     private final ObjectMapper objectMapper;
 
@@ -27,27 +27,31 @@ public class PacienteService implements IPacienteService<PacienteDto>{
     }
 
     @Override
-    public List<Paciente> listarPacientes() {
-        return pacienteIDao.listarTodos();
+    public List<PacienteDto> listarPacientes() {
+        return pacienteIDao.listarTodos().stream().map(PacienteDto::objectMapper).toList();
     }
 
     @Override
-    public Paciente guardar(Paciente paciente) {
-        PacienteDto pacienteDto = objectMapper.convertValue(paciente, PacienteDto.class);
-        pacienteIDao.guardar(pacienteDto);
-        return paciente;
+    public PacienteDto guardar(Paciente paciente) {
+        PacienteDto pacienteDto;
+        pacienteDto = objectMapper.convertValue(pacienteIDao.guardar(paciente), PacienteDto.class);
+        return pacienteDto;
 
 
     }
 
     @Override
-    public Paciente actualizar(Paciente paciente) {
-        return pacienteIDao.actualizar(paciente);
+    public PacienteDto actualizar(Paciente paciente) {
+        PacienteDto pacienteDto;
+        pacienteDto = objectMapper.convertValue(pacienteIDao.actualizar(paciente),PacienteDto.class);
+        return pacienteDto;
     }
 
     @Override
-    public Paciente buscarPorId(int id) {
-        return pacienteIDao.buscarPorId(id);
+    public PacienteDto buscarPorId(int id) {
+        PacienteDto pacienteDto;
+        pacienteDto = objectMapper.convertValue(pacienteIDao.buscarPorId(id),PacienteDto.class);
+        return pacienteDto;
     }
 
     @Override
