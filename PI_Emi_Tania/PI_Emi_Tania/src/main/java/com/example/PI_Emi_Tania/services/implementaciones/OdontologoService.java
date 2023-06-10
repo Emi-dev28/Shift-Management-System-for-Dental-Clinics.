@@ -3,6 +3,7 @@ package com.example.PI_Emi_Tania.services.implementaciones;
 import com.example.PI_Emi_Tania.Repository.IDao;
 import com.example.PI_Emi_Tania.entity.Odontologo;
 import com.example.PI_Emi_Tania.services.IOdontologoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class OdontologoService implements IOdontologoService {
     private IDao<Odontologo> odontologoIDao; //crearlo para poder llamar a los metodos
 
     //constructor
+    @Autowired
     public OdontologoService(IDao<Odontologo> odontologoIDao) {
         this.odontologoIDao = odontologoIDao;
     }

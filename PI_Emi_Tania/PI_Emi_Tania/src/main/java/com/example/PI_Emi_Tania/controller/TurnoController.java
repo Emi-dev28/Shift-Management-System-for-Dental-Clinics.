@@ -33,6 +33,7 @@ public class TurnoController {
     public List<TurnoDto> listarTurnos(){
         return turnoService.listar();
     }
+
     @PostMapping("registrar")
     public ResponseEntity<TurnoDto> regsitrar(@RequestBody Turno turno){
         ResponseEntity<TurnoDto> respuesta;

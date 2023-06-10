@@ -1,8 +1,10 @@
 package com.example.PI_Emi_Tania.controller;
 
+import com.example.PI_Emi_Tania.dto.OdontologoDto;
 import com.example.PI_Emi_Tania.entity.Odontologo;
 import com.example.PI_Emi_Tania.services.implementaciones.OdontologoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

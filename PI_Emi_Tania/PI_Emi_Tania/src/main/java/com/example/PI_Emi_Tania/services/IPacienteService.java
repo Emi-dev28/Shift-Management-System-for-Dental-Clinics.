@@ -4,14 +4,14 @@ import com.example.PI_Emi_Tania.entity.Paciente;
 
 import java.util.List;
 
-public interface IPacienteService {
+public interface IPacienteService <T> {
     List<Paciente> listarPacientes();
 
-    Paciente guardar(Paciente paciente);
+    T guardar(Paciente paciente);
 
-    Paciente actualizar(Paciente paciente);
+    T actualizar(Paciente paciente);
 
-    Paciente buscarPorId(int id);
+    T buscarPorId(int id);
 
     void eliminarPorId(int id);
 }
