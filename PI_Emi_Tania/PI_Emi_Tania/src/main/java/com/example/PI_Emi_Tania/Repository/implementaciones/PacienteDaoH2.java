@@ -7,13 +7,14 @@ import com.example.PI_Emi_Tania.entity.Paciente;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Repository
 public class PacienteDaoH2 implements IDao<Paciente> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PacienteDaoH2.class);

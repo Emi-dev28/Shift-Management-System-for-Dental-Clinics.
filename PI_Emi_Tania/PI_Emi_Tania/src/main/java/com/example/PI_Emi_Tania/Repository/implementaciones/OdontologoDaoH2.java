@@ -5,11 +5,13 @@ import com.example.PI_Emi_Tania.Repository.IDao;
 import com.example.PI_Emi_Tania.entity.Odontologo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class OdontologoDaoH2 implements IDao<Odontologo> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OdontologoDaoH2.class);
@@ -158,8 +160,6 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
     public Odontologo actualizar(Odontologo odontologo) {
         return null;
     }
-
-
     private Odontologo crearObjetoOdontologo(ResultSet resultSet) throws SQLException {
         int id = resultSet.getInt("id");
         String nombre = resultSet.getString("nombre");

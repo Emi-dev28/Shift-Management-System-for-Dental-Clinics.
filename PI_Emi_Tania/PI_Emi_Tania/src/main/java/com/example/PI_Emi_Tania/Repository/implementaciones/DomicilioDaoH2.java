@@ -5,11 +5,13 @@ import com.example.PI_Emi_Tania.Repository.IDao;
 import com.example.PI_Emi_Tania.entity.Domicilio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
 public class DomicilioDaoH2 implements IDao<Domicilio> {
 
 
