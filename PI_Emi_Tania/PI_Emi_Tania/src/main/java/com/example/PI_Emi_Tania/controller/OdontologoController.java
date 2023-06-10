@@ -1,9 +1,12 @@
 package com.example.PI_Emi_Tania.controller;
 
+import com.example.PI_Emi_Tania.dto.OdontologoDto;
 import com.example.PI_Emi_Tania.entity.Odontologo;
 import com.example.PI_Emi_Tania.services.implementaciones.OdontologoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/odontologos")
@@ -15,18 +18,23 @@ public class OdontologoController {
         this.odontologoService = odontologoService;
     }
 
-    @GetMapping
-    public Odontologo buscarOdontologoPorID(@PathVariable int id) {
+    @GetMapping("/{id}")
+    public OdontologoDto buscarOdontologoPorId(@PathVariable int id) {
         return odontologoService.buscarOdontologoPorId(id);
     }
 
+    @GetMapping()
+    public List<Odontologo> listarOdontologos() {
+        return odontologoService.listaDeOdontologos();
+    }
+
     @PostMapping("/registrar")
-    public Odontologo registrarOdontologo(@RequestBody Odontologo odontologo) { //se le carga como payload en el post
+    public OdontologoDto registrarOdontologo(@RequestBody Odontologo odontologo) { //se le carga como payload en el post
         return odontologoService.registrarOdontologo(odontologo);
     }
 
     @PutMapping("/actualizar")
-    public Odontologo actualizarOdontologo(@RequestBody Odontologo odontologo) { //se le carga como payload en el post
+    public OdontologoDto actualizarOdontologo(@RequestBody Odontologo odontologo) { //se le carga como payload en el post
         return odontologoService.actualizarOdontologo(odontologo);
     }
 
@@ -34,4 +42,5 @@ public class OdontologoController {
     public void eliminarOdontologo(@PathVariable int id) {
         odontologoService.eliminarOdontologo(id);
     }
+
 }

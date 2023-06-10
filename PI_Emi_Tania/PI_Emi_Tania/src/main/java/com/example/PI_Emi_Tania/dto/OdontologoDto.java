@@ -2,6 +2,7 @@ package com.example.PI_Emi_Tania.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OdontologoDto {
     private String matricula;
@@ -40,4 +41,15 @@ public class OdontologoDto {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
+
+
+
+
+
+
+
+
+
+
 }

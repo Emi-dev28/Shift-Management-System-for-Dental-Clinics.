@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d727da5b-5366-4436-be11-d781a3fa5b57" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/Repository/implementaciones/TurnoIDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/Repository/implementaciones/TurnoDaoH2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/dto/DomicilioDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/controller/OdontologoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/controller/OdontologoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/dto/OdontologoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/dto/OdontologoDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/services/IOdontologoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/services/IOdontologoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/services/implementaciones/OdontologoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/services/implementaciones/OdontologoService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,15 +43,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "copyright"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
