@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d727da5b-5366-4436-be11-d781a3fa5b57" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/dto/DomicilioDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/controller/OdontologoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/controller/OdontologoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/dto/OdontologoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/dto/OdontologoDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/services/IOdontologoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/services/IOdontologoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/services/implementaciones/OdontologoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/services/implementaciones/OdontologoService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
