@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d727da5b-5366-4436-be11-d781a3fa5b57" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/controller/OdontologoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/PI_Emi_Tania/PI_Emi_Tania/src/main/java/com/example/PI_Emi_Tania/controller/OdontologoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +43,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "copyright"
   }
