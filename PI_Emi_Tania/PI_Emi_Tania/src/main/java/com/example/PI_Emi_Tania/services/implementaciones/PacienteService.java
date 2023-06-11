@@ -18,7 +18,7 @@ public class PacienteService implements IPacienteService {
     @Autowired
     public PacienteService(IDao<Paciente> pacienteIDao, ObjectMapper objectMapper) {
         this.pacienteIDao = pacienteIDao;
-        this.objectMapper = objectMapper;
+        this.objectMapper = new ObjectMapper();
     }
 
 

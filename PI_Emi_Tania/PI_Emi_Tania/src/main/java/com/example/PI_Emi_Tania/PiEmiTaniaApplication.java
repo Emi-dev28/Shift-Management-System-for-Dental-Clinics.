@@ -13,7 +13,7 @@ public class PiEmiTaniaApplication {
     private static final Logger LOGGER = LoggerFactory.getLogger(PiEmiTaniaApplication.class);
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        H2Connection.getConnection();
+        H2Connection.crearDataBase();
         SpringApplication.run(PiEmiTaniaApplication.class, args);
         LOGGER.info("Proyecto Integrador Emi y Tania is running...");
     }

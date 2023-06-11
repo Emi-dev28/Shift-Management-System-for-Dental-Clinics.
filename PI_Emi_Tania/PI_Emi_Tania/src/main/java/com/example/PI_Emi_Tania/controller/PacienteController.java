@@ -13,8 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pacientes")
-
-
 public class PacienteController {
     private IPacienteService pacienteService;
 

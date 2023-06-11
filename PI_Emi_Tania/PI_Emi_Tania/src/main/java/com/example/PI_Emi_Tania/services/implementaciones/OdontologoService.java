@@ -21,7 +21,7 @@ public class OdontologoService implements IOdontologoService {
 @Autowired
     public OdontologoService(IDao<Odontologo> odontologoIDao, ObjectMapper objectMapper) {
         this.odontologoIDao = odontologoIDao;
-        this.objectMapper = objectMapper;
+        this.objectMapper = new ObjectMapper();
     }
 
     @Override

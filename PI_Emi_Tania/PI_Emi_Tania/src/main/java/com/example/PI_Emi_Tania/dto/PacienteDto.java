@@ -69,7 +69,7 @@ public class PacienteDto {
         this.domicilio = domicilio;
     }
     public static PacienteDto objectMapper(Paciente paciente){
-        ObjectMapper objectMapper = null;
+        ObjectMapper objectMapper = new ObjectMapper();
         PacienteDto pacienteDto = objectMapper.convertValue(paciente, PacienteDto.class);
         return pacienteDto;
     }
