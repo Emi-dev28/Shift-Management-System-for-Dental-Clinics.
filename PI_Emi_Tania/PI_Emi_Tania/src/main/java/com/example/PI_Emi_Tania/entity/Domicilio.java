@@ -1,7 +1,13 @@
 package com.example.PI_Emi_Tania.entity;
 
-public class Domicilio {
+import javax.persistence.*;
 
+@Entity
+@Table(name="DOMICILIOS")
+
+public class Domicilio {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String calle;
     private int numero;
@@ -21,6 +27,9 @@ public class Domicilio {
         this.numero = numero;
         this.localidad = localidad;
         this.provincia = provincia;
+    }
+
+    public Domicilio() {
     }
 
     public int getId() {

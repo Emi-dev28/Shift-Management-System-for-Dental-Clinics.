@@ -1,18 +1,45 @@
 package com.example.PI_Emi_Tania.entity;
 
-import java.time.LocalDate;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.persistence.*;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
+@Entity
+@Table(name="PACIENTES")
 public class Paciente {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Size(min=3, max=25, message ="El nombre debe tener entre 3 y 25 caracteres")
+    @NotNull
+    // ^ y $ aseguran que la cadena coincida completamente con el patrón.
+    //[A-Za-záéíóúñÁÉÍÓÚÑ] representa un rango de letras que incluye tanto mayúsculas como minúsculas, así como letras acentuadas en español (á, é, í, ó, ú, ñ, Á, É, Í, Ó, Ú, Ñ).
+    //\\s permite espacios en blanco.
+    //+ indica que el patrón anterior puede aparecer una o más veces.
+    @Pattern(regexp = "^[A-Za-záéíóúñÁÉÍÓÚÑ\\\\s]+$\"")
+
     private String nombre;
+    @Size(min=3, max=25, message = "El apellido debe contener entre 3 y 25 caracteres")
+    @NotNull
     private String apellido;
+    @Size(max = 12)
+    @NotNull
+    @Pattern(regexp = "[/d]")
     private String dni;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @FutureOrPresent
     private LocalDate fechaIngreso;
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name="domicilio_id")
     private Domicilio domicilio;
 
 
-    public Paciente(int id, String nombre, String apellido, String dni, LocalDate fechaIngreso, Domicilio domicilio) {
+    public Paciente(Long id, String nombre, String apellido, String dni, LocalDate fechaIngreso, Domicilio domicilio) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -32,13 +59,11 @@ public class Paciente {
     public Paciente() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 
     public String getNombre() {
         return nombre;

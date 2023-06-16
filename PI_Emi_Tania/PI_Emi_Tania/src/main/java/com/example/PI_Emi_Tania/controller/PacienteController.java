@@ -30,7 +30,7 @@ public class PacienteController {
         return respuesta;
     }
 
-    @PostMapping("/actualizar")
+    @PutMapping("/actualizar")
     public ResponseEntity<PacienteDto> actualizar(@RequestBody Paciente paciente) {
         ResponseEntity<PacienteDto> respuesta;
         PacienteDto pacienteDto = pacienteService.actualizar(paciente);
