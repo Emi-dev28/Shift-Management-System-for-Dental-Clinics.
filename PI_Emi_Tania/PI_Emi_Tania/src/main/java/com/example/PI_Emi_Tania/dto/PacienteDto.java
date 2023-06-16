@@ -16,6 +16,7 @@ public class PacienteDto {
     private String dni;
     private LocalDate fechaIngreso;
 
+
     private DomicilioDto domicilioDto;
 
     public PacienteDto() {
@@ -71,9 +72,15 @@ public class PacienteDto {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public PacienteDto(DomicilioDto domicilioDto) {
+    public DomicilioDto getDomicilioDto() {
+        return domicilioDto;
+    }
+
+    public void setDomicilioDto(DomicilioDto domicilioDto) {
         this.domicilioDto = domicilioDto;
     }
+
+
 
     public static PacienteDto objectMapper(Paciente paciente){
         ObjectMapper objectMapper = new ObjectMapper();

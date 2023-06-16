@@ -41,7 +41,7 @@ public class PacienteController {
     }
 
     @DeleteMapping("eliminar/{id}")
-    public void eliminar(@PathVariable int id) {
+    public void eliminar(@PathVariable Long id) {
         pacienteService.eliminarPorId(id);
     }
 

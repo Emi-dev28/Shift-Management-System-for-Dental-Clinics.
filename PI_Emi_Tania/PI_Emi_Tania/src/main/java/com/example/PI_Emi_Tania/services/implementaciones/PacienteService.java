@@ -44,24 +44,41 @@ public class PacienteService implements IPacienteService {
 
     @Override
     public PacienteDto guardar(Paciente paciente) {
-        PacienteDto pacienteDto;
-        pacienteDto = objectMapper.convertValue(pacienteIDao.guardar(paciente), PacienteDto.class);
-        return pacienteDto;
-
-
+        Paciente pacienteNuevo = pacienteRepository.save(paciente);
+        DomicilioDto domicilioDto = objectMapper.convertValue(pacienteNuevo.getDomicilio(),DomicilioDto.class);
+        PacienteDto pacienteDtoNuevo =objectMapper.convertValue(pacienteNuevo,PacienteDto.class);
+        pacienteDtoNuevo.setDomicilioDto(domicilioDto);
+        LOGGER.info ("Se ha agregado un nuevo paciente: {}", pacienteDtoNuevo);
+        return pacienteDtoNuevo;
     }
 
     @Override
     public PacienteDto actualizar(Paciente paciente) {
-        PacienteDto pacienteDto;
-        pacienteDto = objectMapper.convertValue(pacienteIDao.actualizar(paciente),PacienteDto.class);
-        return pacienteDto;
+        Paciente pacienteAActualizar = pacienteRepository.findById(paciente.getId()).orElse(null);
+        PacienteDto pacienteActualizadoDto = null;
+        if (pacienteAActualizar != null){
+            pacienteAActualizar = paciente; //paso el paciente que me dan por parametro con el pacienteAActualizar que me traje con el ID del paciente que me pasan por parametro
+            pacienteRepository.save(pacienteAActualizar);
+            DomicilioDto domicilioDto = objectMapper.convertValue(pacienteAActualizar.getDomicilio(), DomicilioDto.class);
+            pacienteActualizadoDto = objectMapper.convertValue(pacienteAActualizar, PacienteDto.class);
+            pacienteActualizadoDto.setDomicilioDto(domicilioDto);
+            LOGGER.info("Se ha actualizado satisfactoriamente el paciente: {}", pacienteActualizadoDto);
+        }else LOGGER.error("No se pudo actualizar el paciente por estar registrado en la base de datos");
+
+        return pacienteActualizadoDto;
     }
 
     @Override
     public PacienteDto buscarPorId(Long id) {
-        PacienteDto pacienteDto;
-        pacienteDto = objectMapper.convertValue(pacienteIDao.buscarPorId(id),PacienteDto.class);
+        Paciente pacienteABuscar = pacienteRepository.findById(id).orElse(null);
+        PacienteDto pacienteDto = null;
+        if (pacienteABuscar != null){
+            DomicilioDto domicilioDto = objectMapper.convertValue(pacienteABuscar.getDomicilio(), DomicilioDto.class);
+            pacienteDto = objectMapper.convertValue(pacienteABuscar,PacienteDto.class);
+            pacienteDto.setDomicilioDto(domicilioDto);
+            LOGGER.info ("Se encontró al paciente: {} ", pacienteDto);
+        } else LOGGER.warn("El id que introdujo no se encuentra en la base de datos");
+
         return pacienteDto;
     }
 
