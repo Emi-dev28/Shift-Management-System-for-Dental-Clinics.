@@ -1,4 +1,4 @@
-package com.example.PI_Emi_Tania.Repository.implementaciones;
+//package com.example.PI_Emi_Tania.Repository.implementaciones;
 
 import com.example.PI_Emi_Tania.Repository.IDao;
 import com.example.PI_Emi_Tania.entity.Odontologo;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Repository
+/*@Repository
 public class TurnoDaoH2 implements IDao<Turno> {
     private static final Logger LOGGER = LoggerFactory.getLogger(TurnoDaoH2.class);
     private final PacienteDaoH2 pacienteDaoH2;
@@ -33,9 +33,9 @@ public class TurnoDaoH2 implements IDao<Turno> {
     @Override
     public Turno guardar(Turno turno) {
         Turno guardado = null;
-        Paciente paciente = pacienteDaoH2.buscarPorId(turno.getPaciente().getId());
-        Odontologo odontologo = odontologoDaoH2.buscarPorId(turno.getOdontologo().getId());
-        if(paciente != null && odontologo != null){
+        //Paciente paciente = pacienteDaoH2.buscarPorId(turno.getPaciente().getId());
+        //Odontologo odontologo = odontologoDaoH2.buscarPorId(turno.getOdontologo().getId());
+        /*if(paciente != null && odontologo != null){
             guardado = turno;
             turnoList.add(guardado);
         }
@@ -68,4 +68,5 @@ public class TurnoDaoH2 implements IDao<Turno> {
         guardar(turno);
         return turno;
     }
-}
+ }
+ */

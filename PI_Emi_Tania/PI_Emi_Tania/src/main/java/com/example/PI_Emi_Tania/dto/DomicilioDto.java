@@ -1,6 +1,8 @@
 package com.example.PI_Emi_Tania.dto;
 
+import com.example.PI_Emi_Tania.entity.Domicilio;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DomicilioDto {
@@ -11,7 +13,7 @@ public class DomicilioDto {
 
     public DomicilioDto() {
     }
-
+    @JsonIgnoreProperties(ignoreUnknown = true)
     public DomicilioDto(String calle, int numero, String localidad, String provincia) {
         this.calle = calle;
         this.numero = numero;
@@ -50,7 +52,14 @@ public class DomicilioDto {
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
+
+    public static DomicilioDto objectMapper(Domicilio domicilio){
+        ObjectMapper objectMapper = new ObjectMapper();
+        DomicilioDto domicilioDto = objectMapper.convertValue(domicilio, DomicilioDto.class);
+        return domicilioDto;
+    }
 }
+
 
 
 

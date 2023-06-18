@@ -11,10 +11,10 @@ import org.springframework.stereotype.Repository;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-@Repository
-public class OdontologoDaoH2 implements IDao<Odontologo> {
+//@Repository
+//public class OdontologoDaoH2 implements IDao<Odontologo> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(OdontologoDaoH2.class);
+/*    private static final Logger LOGGER = LoggerFactory.getLogger(OdontologoDaoH2.class);
 
     @Override
     public Odontologo guardar(Odontologo odontologo) {
@@ -166,7 +166,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
         String apellido = resultSet.getString("apellido");
         String matricula = resultSet.getString("matricula");
 
-        return new Odontologo(id, matricula, nombre, apellido);
+        return new Odontologo((long) id, matricula, nombre, apellido);
     }
 
-}
+}*/

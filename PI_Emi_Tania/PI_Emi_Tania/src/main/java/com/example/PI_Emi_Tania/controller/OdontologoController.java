@@ -22,7 +22,7 @@ public class OdontologoController {
 
     // Obtener un Odontólogo por su ID
     @GetMapping("/{id}")
-    public ResponseEntity<OdontologoDto> buscarOdontologoPorId(@PathVariable int id) {
+    public ResponseEntity<OdontologoDto> buscarOdontologoPorId(@PathVariable Long id) {
         OdontologoDto odontologoDto = odontologoService.buscarOdontologoPorId(id);
         if (odontologoDto != null) {
             return new ResponseEntity<>(odontologoDto, HttpStatus.OK);
@@ -32,8 +32,8 @@ public class OdontologoController {
     }
 
     @GetMapping()
-    public List<Odontologo> listarOdontologos() {
-        return odontologoService.listaDeOdontologos();
+    public List<OdontologoDto> listarOdontologos() {
+        return odontologoService.listarOdontologos();
     }
 
     // Registrar un nuevo Odontólogo comentado
@@ -64,7 +64,7 @@ public class OdontologoController {
     }
 
     @DeleteMapping("/{id}")
-    public void eliminarOdontologo(@PathVariable int id) {
+    public void eliminarOdontologo(@PathVariable Long id) {
         odontologoService.eliminarOdontologo(id);
     }
 

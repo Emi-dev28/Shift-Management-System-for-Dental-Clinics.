@@ -14,7 +14,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+/*@Repository
 public class PacienteDaoH2 implements IDao<Paciente> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PacienteDaoH2.class);
@@ -38,7 +38,7 @@ public class PacienteDaoH2 implements IDao<Paciente> {
             ps.execute();
             ResultSet rs = ps.getGeneratedKeys();
             while (rs.next()) {
-                paciente.setId(rs.getInt(1));
+                //paciente.setId(rs.getInt(1));
             }
 
             connection.commit();
@@ -216,5 +216,4 @@ public class PacienteDaoH2 implements IDao<Paciente> {
         return new Paciente(idPaciente, nombrePaciente, apellidoPaciente, dniPaciente, fechaIngreso, domicilioPaciente);
     }
 
-
-}
+*/
