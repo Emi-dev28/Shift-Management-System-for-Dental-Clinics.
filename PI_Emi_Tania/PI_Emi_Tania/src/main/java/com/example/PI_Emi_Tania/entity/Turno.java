@@ -3,12 +3,12 @@ package com.example.PI_Emi_Tania.entity;
 import java.time.LocalDateTime;
 
 public class Turno {
-    private int id;
+    private Long id;
     private Paciente paciente;
     private Odontologo odontologo;
     private LocalDateTime fechaYHora;
 
-    public Turno(int id, Paciente paciente, Odontologo odontologo, LocalDateTime fechaYHora) {
+    public Turno(Long id, Paciente paciente, Odontologo odontologo, LocalDateTime fechaYHora) {
         this.id = id;
         this.paciente = paciente;
         this.odontologo = odontologo;
@@ -24,13 +24,10 @@ public class Turno {
     public Turno() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public Paciente getPaciente() {
         return paciente;

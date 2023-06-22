@@ -3,6 +3,7 @@ package com.example.PI_Emi_Tania.services.implementaciones;
 import com.example.PI_Emi_Tania.Repository.OdontologoRepository;
 import com.example.PI_Emi_Tania.dto.OdontologoDto;
 import com.example.PI_Emi_Tania.entity.Odontologo;
+import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 import com.example.PI_Emi_Tania.services.IOdontologoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -55,7 +56,7 @@ public class OdontologoService implements IOdontologoService {
         return odontologosDtos;
     }
 
-}
+
 
     @Override
         public OdontologoDto registrarOdontologo (Odontologo odontologo){
@@ -80,8 +81,14 @@ public class OdontologoService implements IOdontologoService {
         }
 
         @Override
-        public void eliminarOdontologo (Long id){
-            odontologoRepository.deleteById(id);
+        public void eliminarOdontologo(Long id) throws ResourceNotFoundException {
+            if (buscarOdontologoPorId(id) != null) {
+                odontologoRepository.deleteById(id);
+                LOGGER.warn("Se eliminó el odontologo con id: {} ", id);
+            } else {
+                LOGGER.error("No se encontró el odontologo con id " + id);
+                throw new ResourceNotFoundException("No se encontró el odontologo con id " + id);
+            }
         }
 
 
