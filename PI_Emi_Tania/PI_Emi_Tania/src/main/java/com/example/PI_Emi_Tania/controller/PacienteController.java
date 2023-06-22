@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/pacientes")
 public class PacienteController {
@@ -39,6 +39,8 @@ public class PacienteController {
             respuesta = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         return respuesta;
     }
+
+
 
     @DeleteMapping("eliminar/{id}")
     public void eliminar(@PathVariable Long id) {
