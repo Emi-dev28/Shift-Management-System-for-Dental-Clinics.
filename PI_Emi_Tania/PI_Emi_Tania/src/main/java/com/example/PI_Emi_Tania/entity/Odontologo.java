@@ -1,12 +1,12 @@
 package com.example.PI_Emi_Tania.entity;
 
 public class Odontologo {
-    private int id;
+    private Long id;
     private String matricula;
     private String nombre;
     private String apellido;
 
-    public Odontologo(int id, String matricula, String nombre, String apellido) {
+    public Odontologo(Long id, String matricula, String nombre, String apellido) {
         this.id = id;
         this.matricula = matricula;
         this.nombre = nombre;
@@ -19,13 +19,10 @@ public class Odontologo {
         this.apellido = apellido;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getMatricula() {
         return matricula;

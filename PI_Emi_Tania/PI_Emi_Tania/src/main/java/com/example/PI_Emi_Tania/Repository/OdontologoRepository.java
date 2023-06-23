@@ -1,12 +1,11 @@
 package com.example.PI_Emi_Tania.Repository;
 
-import com.example.PI_Emi_Tania.entity.Paciente;
+import com.example.PI_Emi_Tania.entity.Odontologo;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
-public interface PacienteRepository extends JpaRepository<Paciente, Long> {
-
+public interface OdontologoRepository extends JpaRepository<Odontologo, Long> {
 
 }

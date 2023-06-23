@@ -2,15 +2,16 @@ package com.example.PI_Emi_Tania.services;
 
 import com.example.PI_Emi_Tania.dto.OdontologoDto;
 import com.example.PI_Emi_Tania.entity.Odontologo;
+import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 
 import java.util.List;
 
 public interface IOdontologoService {
 
-    OdontologoDto buscarOdontologoPorId(int id);
-    List<Odontologo> listaDeOdontologos();
+    OdontologoDto buscarOdontologoPorId(Long id);
+    List<OdontologoDto> listarOdontologos();
     OdontologoDto registrarOdontologo(Odontologo odontologo);
     OdontologoDto actualizarOdontologo (Odontologo odontologo);
-    void eliminarOdontologo(int id);
+    void eliminarOdontologo(Long id) throws ResourceNotFoundException;
 
 }

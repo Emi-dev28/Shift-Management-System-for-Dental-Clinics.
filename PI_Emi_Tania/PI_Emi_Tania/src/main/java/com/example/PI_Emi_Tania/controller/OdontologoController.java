@@ -2,6 +2,7 @@ package com.example.PI_Emi_Tania.controller;
 
 import com.example.PI_Emi_Tania.dto.OdontologoDto;
 import com.example.PI_Emi_Tania.entity.Odontologo;
+import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 import com.example.PI_Emi_Tania.services.implementaciones.OdontologoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,7 @@ public class OdontologoController {
 
     // Obtener un Odontólogo por su ID
     @GetMapping("/{id}")
-    public ResponseEntity<OdontologoDto> buscarOdontologoPorId(@PathVariable int id) {
+    public ResponseEntity<OdontologoDto> buscarOdontologoPorId(@PathVariable Long id) {
         OdontologoDto odontologoDto = odontologoService.buscarOdontologoPorId(id);
         if (odontologoDto != null) {
             return new ResponseEntity<>(odontologoDto, HttpStatus.OK);
@@ -32,8 +33,8 @@ public class OdontologoController {
     }
 
     @GetMapping()
-    public List<Odontologo> listarOdontologos() {
-        return odontologoService.listaDeOdontologos();
+    public List<OdontologoDto> listarOdontologos() {
+        return odontologoService.listarOdontologos();
     }
 
     // Registrar un nuevo Odontólogo comentado
@@ -64,8 +65,9 @@ public class OdontologoController {
     }
 
     @DeleteMapping("/{id}")
-    public void eliminarOdontologo(@PathVariable int id) {
+    public ResponseEntity<?> eliminarOdontologo(@PathVariable Long id) throws ResourceNotFoundException {
         odontologoService.eliminarOdontologo(id);
+        return ResponseEntity.ok("El odontologo se ha eliminado");
     }
 
 }
