@@ -20,7 +20,7 @@ public class TurnoService implements ITurnoService {
     @Autowired
     public TurnoService(IDao<Turno> turnoIDao, ObjectMapper objectMapper) {
         this.turnoIDao = turnoIDao;
-        this.objectMapper = objectMapper;
+        this.objectMapper = new ObjectMapper();
     }
 
     @Override

@@ -52,7 +52,7 @@ public class TurnoController {
     public ResponseEntity<TurnoDto> actualizar(@RequestBody Turno turno ){
         ResponseEntity<TurnoDto> respuesta;
         TurnoDto turnoDto = turnoService.actualizar(turno);
-        if(turno !=null) return respuesta = new ResponseEntity<>(turnoDto,null,HttpStatus.OK);
+        if(turnoDto !=null) return respuesta = new ResponseEntity<>(turnoDto,null,HttpStatus.OK);
         else respuesta = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         return respuesta;
     }

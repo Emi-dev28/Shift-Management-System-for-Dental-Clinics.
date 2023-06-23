@@ -12,7 +12,7 @@ public interface IPacienteService  {
 
     PacienteDto actualizar(Paciente paciente);
 
-    PacienteDto buscarPorId(int id);
+    PacienteDto buscarPorId(Long id);
 
-    void eliminarPorId(int id);
+    void eliminarPorId(Long id);
 }

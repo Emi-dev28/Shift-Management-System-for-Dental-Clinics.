@@ -10,22 +10,33 @@ import java.time.LocalDate;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PacienteDto {
+    private Long id;
     private String nombre;
     private String apellido;
     private String dni;
     private LocalDate fechaIngreso;
 
-    private Domicilio domicilio;
+
+    private DomicilioDto domicilioDto;
 
     public PacienteDto() {
     }
 
-    public PacienteDto(String nombre, String apellido, String dni, LocalDate fechaIngreso, Domicilio domicilio) {
+    public PacienteDto(String nombre, String apellido, String dni, LocalDate fechaIngreso, DomicilioDto domicilioDto) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.fechaIngreso = fechaIngreso;
-        this.domicilio = domicilio;
+        this.domicilioDto = domicilioDto;
+    }
+
+    public PacienteDto(Long id, String nombre, String apellido, String dni, LocalDate fechaIngreso, DomicilioDto domicilioDto) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.fechaIngreso = fechaIngreso;
+        this.domicilioDto = domicilioDto;
     }
 
 
@@ -43,7 +54,7 @@ public class PacienteDto {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
+}
 
     public String getDni() {
         return dni;
@@ -61,15 +72,18 @@ public class PacienteDto {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public Domicilio getDomicilio() {
-        return domicilio;
+    public DomicilioDto getDomicilioDto() {
+        return domicilioDto;
     }
 
-    public void setDomicilio(Domicilio domicilio) {
-        this.domicilio = domicilio;
+    public void setDomicilioDto(DomicilioDto domicilioDto) {
+        this.domicilioDto = domicilioDto;
     }
+
+
+
     public static PacienteDto objectMapper(Paciente paciente){
-        ObjectMapper objectMapper = null;
+        ObjectMapper objectMapper = new ObjectMapper();
         PacienteDto pacienteDto = objectMapper.convertValue(paciente, PacienteDto.class);
         return pacienteDto;
     }

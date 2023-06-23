@@ -1,9 +1,7 @@
 package com.example.PI_Emi_Tania.controller;
 
 import com.example.PI_Emi_Tania.dto.PacienteDto;
-import com.example.PI_Emi_Tania.dto.TurnoDto;
 import com.example.PI_Emi_Tania.entity.Paciente;
-import com.example.PI_Emi_Tania.entity.Turno;
 import com.example.PI_Emi_Tania.services.IPacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,8 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pacientes")
-
-
 public class PacienteController {
     private IPacienteService pacienteService;
 
@@ -34,18 +30,23 @@ public class PacienteController {
         return respuesta;
     }
 
-    @PostMapping("/actualizar")
-    public Paciente actualizar(@RequestBody Paciente paciente) {
-        return pacienteService.actualizar(paciente);
+    @PutMapping("/actualizar")
+    public ResponseEntity<PacienteDto> actualizar(@RequestBody Paciente paciente) {
+        ResponseEntity<PacienteDto> respuesta;
+        PacienteDto pacienteDto = pacienteService.actualizar(paciente);
+        if(pacienteDto != null) return respuesta = new ResponseEntity<>(pacienteDto,null,HttpStatus.OK);
+        else
+            respuesta = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        return respuesta;
     }
 
     @DeleteMapping("eliminar/{id}")
-    public void eliminar(@PathVariable int id) {
+    public void eliminar(@PathVariable Long id) {
         pacienteService.eliminarPorId(id);
     }
 
     @GetMapping
-    public List<Paciente> listar() {
+    public List<PacienteDto> listar() {
         return pacienteService.listarPacientes();
     }
 }
