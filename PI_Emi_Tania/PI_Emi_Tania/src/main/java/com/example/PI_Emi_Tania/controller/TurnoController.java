@@ -2,6 +2,8 @@ package com.example.PI_Emi_Tania.controller;
 
 import com.example.PI_Emi_Tania.dto.TurnoDto;
 import com.example.PI_Emi_Tania.entity.Turno;
+import com.example.PI_Emi_Tania.exceptions.BadRequestException;
+import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 import com.example.PI_Emi_Tania.services.ITurnoService;
 import com.example.PI_Emi_Tania.services.implementaciones.TurnoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +22,8 @@ public class TurnoController {
         this.turnoService = turnoService;
     }
     @GetMapping("/{id}")
-    public ResponseEntity<TurnoDto> buscarTurnoPorId(@PathVariable int id){
-        ResponseEntity<TurnoDto> respuesta;
-        TurnoDto turnoDto = turnoService.buscarPorId(id);
-        if(turnoDto != null){
-            respuesta = new ResponseEntity<>(turnoDto,null, HttpStatus.OK);
-
-        }else respuesta = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        return respuesta;
+    public ResponseEntity<TurnoDto> buscarTurnoPorId(@PathVariable Long id){
+        return new ResponseEntity<>(turnoService.buscarPorId(id), null, HttpStatus.OK);
     }
     @GetMapping
     public List<TurnoDto> listarTurnos(){
@@ -35,26 +31,18 @@ public class TurnoController {
     }
 
     @PostMapping("registrar")
-    public ResponseEntity<TurnoDto> regsitrar(@RequestBody Turno turno){
-        ResponseEntity<TurnoDto> respuesta;
-        TurnoDto turnoDto = turnoService.guardar(turno);
-        if(turnoDto != null)
-            respuesta = new ResponseEntity<>(turnoDto, null, HttpStatus.CREATED);
-            else respuesta = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-
-        return respuesta;
+    public ResponseEntity<TurnoDto> regsitrar(@RequestBody Turno turno) throws BadRequestException {
+        return new ResponseEntity<>(turnoService.guardar(turno), null,HttpStatus.OK);
     }
     @DeleteMapping("/eliminar/{id}")
-    public void eliminar(@PathVariable int id){
+    public ResponseEntity<?> eliminar(@PathVariable Long id) throws ResourceNotFoundException {
         turnoService.eliminar(id);
+        return ResponseEntity.ok("Turno Eliminado");
+
     }
     @PutMapping("/actualizar")
     public ResponseEntity<TurnoDto> actualizar(@RequestBody Turno turno ){
-        ResponseEntity<TurnoDto> respuesta;
-        TurnoDto turnoDto = turnoService.actualizar(turno);
-        if(turnoDto !=null) return respuesta = new ResponseEntity<>(turnoDto,null,HttpStatus.OK);
-        else respuesta = ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-        return respuesta;
+        return new ResponseEntity<>(turnoService.actualizar(turno), null, HttpStatus.OK);
     }
 
 }

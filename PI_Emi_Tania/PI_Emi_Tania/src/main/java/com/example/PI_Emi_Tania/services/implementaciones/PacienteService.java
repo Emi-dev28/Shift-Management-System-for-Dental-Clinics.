@@ -5,6 +5,7 @@ import com.example.PI_Emi_Tania.dto.DomicilioDto;
 import com.example.PI_Emi_Tania.dto.PacienteDto;
 import com.example.PI_Emi_Tania.entity.Domicilio;
 import com.example.PI_Emi_Tania.entity.Paciente;
+import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 import com.example.PI_Emi_Tania.services.IPacienteService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -82,8 +83,15 @@ public class PacienteService implements IPacienteService {
     }
 
     @Override
-    public void eliminarPorId(Long id) {
-        pacienteRepository.deleteById(id);
+    public void eliminarPorId(Long id) throws ResourceNotFoundException {
+        if(buscarPorId(id) != null){
+            pacienteRepository.deleteById(id);
+            LOGGER.warn("Se ha eliminado el paciente con id, {}", id);
+        }
+        else {
+            LOGGER.error("No se ha encontrado el paciente con id {}", id);
+            throw new ResourceNotFoundException("No se ha encontrado el paciente con id" + id);
+        }
     }
 
 

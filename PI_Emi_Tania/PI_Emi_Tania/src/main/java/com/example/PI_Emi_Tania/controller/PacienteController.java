@@ -2,6 +2,7 @@ package com.example.PI_Emi_Tania.controller;
 
 import com.example.PI_Emi_Tania.dto.PacienteDto;
 import com.example.PI_Emi_Tania.entity.Paciente;
+import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 import com.example.PI_Emi_Tania.services.IPacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,7 +44,7 @@ public class PacienteController {
 
 
     @DeleteMapping("eliminar/{id}")
-    public void eliminar(@PathVariable Long id) {
+    public void eliminar(@PathVariable Long id) throws ResourceNotFoundException {
         pacienteService.eliminarPorId(id);
     }
 
