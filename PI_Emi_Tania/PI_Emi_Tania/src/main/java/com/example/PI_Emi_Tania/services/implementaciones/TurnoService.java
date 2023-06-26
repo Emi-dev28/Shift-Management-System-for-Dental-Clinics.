@@ -11,6 +11,7 @@ import com.example.PI_Emi_Tania.entity.Turno;
 import com.example.PI_Emi_Tania.exceptions.BadRequestException;
 import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 import com.example.PI_Emi_Tania.services.ITurnoService;
+import com.example.PI_Emi_Tania.utils.JsonPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,7 +61,7 @@ public class TurnoService implements ITurnoService {
         }
         else {
             turnoDto = TurnoDto.fromTurno(turnoRepository.save(turno));
-            LOGGER.info("Nuevo turno registrado con exito: {}", turnoDto);
+            LOGGER.info("Nuevo turno registrado con exito: {}", JsonPrinter.toString(turnoDto));
         }
         return turnoDto;
     }
@@ -69,7 +70,7 @@ public class TurnoService implements ITurnoService {
     public List<TurnoDto> listar() {
         List<Turno> turnos = turnoRepository.findAll();
         List<TurnoDto> turnoDtos = turnos.stream().map(TurnoDto::fromTurno).toList();
-        LOGGER.info("La lista de turnos es la siguiente: {}", turnoDtos);
+        LOGGER.info("La lista de turnos es la siguiente: {}", JsonPrinter.toString(turnoDtos));
         return turnoDtos;
     }
 
@@ -81,7 +82,7 @@ public class TurnoService implements ITurnoService {
             turnoAActualizar = turno;
             turnoRepository.save(turnoAActualizar);
             turnoDto = TurnoDto.fromTurno(turnoAActualizar);
-            LOGGER.warn("Turno actualizado con exito {}", turnoDto);
+            LOGGER.warn("Turno actualizado con exito {}", JsonPrinter.toString(turnoDto));
         }
         else LOGGER.error("No se pudo actualizar el turno");
 
@@ -94,7 +95,7 @@ public class TurnoService implements ITurnoService {
         TurnoDto turnoDto = null;
         if(turnoBuscado != null){
             turnoDto= TurnoDto.fromTurno(turnoBuscado);
-            LOGGER.info("Turno encontrado con exito {}", turnoDto);
+            LOGGER.info("Turno encontrado con exito {}", JsonPrinter.toString(turnoDto));
         }
         else LOGGER.error("El id no se encuentra registrado en la base de datos");
         return turnoDto;

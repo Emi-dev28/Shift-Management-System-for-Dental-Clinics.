@@ -7,6 +7,7 @@ import com.example.PI_Emi_Tania.entity.Domicilio;
 import com.example.PI_Emi_Tania.entity.Paciente;
 import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 import com.example.PI_Emi_Tania.services.IPacienteService;
+import com.example.PI_Emi_Tania.utils.JsonPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +39,7 @@ public class PacienteService implements IPacienteService {
                     DomicilioDto domicilioDto = objectMapper.convertValue(dom,DomicilioDto.class);
                     return new PacienteDto(paciente.getId(),paciente.getNombre(), paciente.getApellido(),paciente.getDni(),paciente.getFechaIngreso(),domicilioDto);
         }).toList();
-        LOGGER.info("Lista de pacientes: {}", pacientesDtos);
+        LOGGER.info("Lista de pacientes: {}", JsonPrinter.toString(pacientesDtos));
         return pacientesDtos;
      }
 
@@ -48,7 +49,7 @@ public class PacienteService implements IPacienteService {
         DomicilioDto domicilioDto = objectMapper.convertValue(pacienteNuevo.getDomicilio(),DomicilioDto.class);
         PacienteDto pacienteDtoNuevo =objectMapper.convertValue(pacienteNuevo,PacienteDto.class);
         pacienteDtoNuevo.setDomicilioDto(domicilioDto);
-        LOGGER.info ("Se ha agregado un nuevo paciente: {}", pacienteDtoNuevo);
+        LOGGER.info ("Se ha agregado un nuevo paciente: {}", JsonPrinter.toString(pacienteDtoNuevo));
         return pacienteDtoNuevo;
     }
 
@@ -62,7 +63,7 @@ public class PacienteService implements IPacienteService {
             DomicilioDto domicilioDto = objectMapper.convertValue(pacienteAActualizar.getDomicilio(), DomicilioDto.class);
             pacienteActualizadoDto = objectMapper.convertValue(pacienteAActualizar, PacienteDto.class);
             pacienteActualizadoDto.setDomicilioDto(domicilioDto);
-            LOGGER.info("Se ha actualizado satisfactoriamente el paciente: {}", pacienteActualizadoDto);
+            LOGGER.info("Se ha actualizado satisfactoriamente el paciente: {}", JsonPrinter.toString(pacienteActualizadoDto));
         }else LOGGER.error("No se pudo actualizar el paciente por estar registrado en la base de datos");
 
         return pacienteActualizadoDto;
@@ -76,7 +77,7 @@ public class PacienteService implements IPacienteService {
             DomicilioDto domicilioDto = objectMapper.convertValue(pacienteABuscar.getDomicilio(), DomicilioDto.class);
             pacienteDto = objectMapper.convertValue(pacienteABuscar,PacienteDto.class);
             pacienteDto.setDomicilioDto(domicilioDto);
-            LOGGER.info ("Se encontró al paciente: {} ", pacienteDto);
+            LOGGER.info ("Se encontró al paciente: {} ", JsonPrinter.toString(pacienteDto));
         } else LOGGER.warn("El id que introdujo no se encuentra en la base de datos");
 
         return pacienteDto;

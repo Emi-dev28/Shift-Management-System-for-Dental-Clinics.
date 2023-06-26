@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.PI_Emi_Tania.utils.JsonPrinter;
 
 import java.util.List;
 
@@ -28,15 +29,17 @@ public class OdontologoService implements IOdontologoService {
     }
 
     @Override
-        public OdontologoDto buscarOdontologoPorId (Long id){
+    public OdontologoDto buscarOdontologoPorId (Long id){
         Odontologo odontologoABuscar = odontologoRepository.findById(id).orElse(null);
         OdontologoDto odontologoDto = null;
         if (odontologoABuscar != null){
             odontologoDto = objectMapper.convertValue(odontologoABuscar,OdontologoDto.class);
-            LOGGER.info ("Se encontró al odontologo: {} ", odontologoDto);
-        } else LOGGER.warn("El id que introdujo no se encuentra en la base de datos");
-        return odontologoDto;
+            LOGGER.info ("Se encontró al odontologo: {} ", JsonPrinter.toString(odontologoDto));
+        } else {
+            LOGGER.warn("El id que introdujo no se encuentra en la base de datos");
         }
+        return odontologoDto;
+    }
 
     @Override
     public List<OdontologoDto> listarOdontologos() {
@@ -50,7 +53,7 @@ public class OdontologoService implements IOdontologoService {
                     return new OdontologoDto(odontologo.getId(), odontologo.getNombre(), odontologo.getApellido(), odontologo.getMatricula());
                 }).toList();
 
-        LOGGER.info("Lista de odontologos: {}", odontologosDtos);
+        LOGGER.info("Lista de odontologos: {}", JsonPrinter.toString(odontologosDtos));
 
         return odontologosDtos;
     }
@@ -61,7 +64,7 @@ public class OdontologoService implements IOdontologoService {
         public OdontologoDto registrarOdontologo (Odontologo odontologo){
             Odontologo odontologoNuevo = odontologoRepository.save(odontologo);
             OdontologoDto odontologoDtoNuevo =objectMapper.convertValue(odontologoNuevo,OdontologoDto.class);
-            LOGGER.info ("Se ha agregado un nuevo odontologo: {}", odontologoDtoNuevo);
+            LOGGER.info ("Se ha agregado un nuevo odontologo: {}", JsonPrinter.toString(odontologoDtoNuevo));
             return odontologoDtoNuevo;
         }
 
@@ -73,7 +76,7 @@ public class OdontologoService implements IOdontologoService {
                 odontologoAActualizar = odontologo; //paso el odontologo que me dan por parametro con el odontologoAActualizar que me traje con el ID del odontologo que me pasan por parametro
                 odontologoRepository.save(odontologoAActualizar);
                 odontologoActualizadoDto = objectMapper.convertValue(odontologoAActualizar, OdontologoDto.class);
-                LOGGER.info("Se ha actualizado satisfactoriamente el odontologo: {}", odontologoActualizadoDto);
+                LOGGER.info("Se ha actualizado satisfactoriamente el odontologo: {}", JsonPrinter.toString(odontologoActualizadoDto));
             }else LOGGER.error("No se pudo actualizar el odontologo por estar registrado en la base de datos");
 
             return odontologoActualizadoDto;

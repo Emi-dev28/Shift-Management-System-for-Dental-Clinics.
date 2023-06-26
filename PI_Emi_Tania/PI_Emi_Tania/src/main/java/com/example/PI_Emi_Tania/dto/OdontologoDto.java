@@ -7,17 +7,23 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OdontologoDto {
+    private Long id;
     private String matricula;
     private String nombre;
     private String apellido;
 
     public OdontologoDto(Long id, String matricula, String nombre, String apellido) {
+        this.id = id;
         this.matricula = matricula;
         this.nombre = nombre;
         this.apellido = apellido;
     }
 
     public OdontologoDto() {
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getMatricula() {
