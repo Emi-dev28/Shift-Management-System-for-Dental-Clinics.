@@ -1,7 +1,6 @@
 package com.example.PI_Emi_Tania.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import javax.persistence.*;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotNull;

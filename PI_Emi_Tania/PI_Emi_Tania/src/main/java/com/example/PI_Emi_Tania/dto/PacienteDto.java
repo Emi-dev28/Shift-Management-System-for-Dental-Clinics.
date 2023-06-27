@@ -1,8 +1,6 @@
 package com.example.PI_Emi_Tania.dto;
 
-import com.example.PI_Emi_Tania.entity.Domicilio;
 import com.example.PI_Emi_Tania.entity.Paciente;
-import com.example.PI_Emi_Tania.entity.Turno;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
