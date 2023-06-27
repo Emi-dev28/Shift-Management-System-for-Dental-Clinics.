@@ -5,7 +5,6 @@ import com.example.PI_Emi_Tania.entity.Turno;
 import com.example.PI_Emi_Tania.exceptions.BadRequestException;
 import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 import com.example.PI_Emi_Tania.services.ITurnoService;
-import com.example.PI_Emi_Tania.services.implementaciones.TurnoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/turnos")
 public class TurnoController {
