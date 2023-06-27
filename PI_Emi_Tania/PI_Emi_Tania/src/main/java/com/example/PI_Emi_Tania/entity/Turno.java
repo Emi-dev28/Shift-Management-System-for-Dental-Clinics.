@@ -24,12 +24,7 @@ public class Turno {
     @NotNull(message = "Debe especificarse la fecha y hora del turno")
     private LocalDateTime fechaYHora;
 
-    public Turno(Long id, Paciente paciente, Odontologo odontologo, LocalDateTime fechaYHora) {
-        this.id = id;
-        this.paciente = paciente;
-        this.odontologo = odontologo;
-        this.fechaYHora = fechaYHora;
-    }
+
 
     public Turno(Paciente paciente, Odontologo odontologo, LocalDateTime fechaYHora) {
         this.paciente = paciente;

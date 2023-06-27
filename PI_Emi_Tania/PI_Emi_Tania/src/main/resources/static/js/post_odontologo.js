@@ -10,7 +10,7 @@ window.addEventListener('load', function () {
   
     // Ante un submit del formulario, se ejecutará la siguiente función
     formulario.addEventListener('submit', function (event) {
-      event.preventDefault(); // Evita el envío del formulario por defecto
+      event.preventDefault();
   
       // Creamos un objeto que contendrá los datos del nuevo odontólogo
       const formData = {
@@ -21,9 +21,8 @@ window.addEventListener('load', function () {
   
       // Invocamos la API "odontologos" utilizando la función fetch de JavaScript
       // con el método POST para guardar el odontólogo que enviaremos en formato JSON
-      //Si la API REST del backend se encuentra en una URL diferente, 
-     //cambiar el valor de url por la url en cuestion
-      const url = '/odontologos';
+
+      const url = 'http://localhost:8080/odontologos/registrar';
       const settings = {
         method: 'POST',
         headers: {
@@ -32,7 +31,7 @@ window.addEventListener('load', function () {
         body: JSON.stringify(formData),
       };
   
-      fetch(url, settings)
+      fetch(`http://localhost:8080/odontologos/registrar`, settings)
         .then(response => response.json())
         .then(data => {
           // Si no hay ningún error, mostramos un mensaje indicando que el odontólogo fue agregado
@@ -42,7 +41,7 @@ window.addEventListener('load', function () {
             'data-dismiss="alert">&times;</button>' +
             '<strong></strong> Odontólogo agregado </div>';
   
-          document.querySelector('#response').innerHTML = successAlert;
+          document.querySelector('#response').innerHTML += successAlert;
           document.querySelector('#response').style.display = 'block';
           resetUploadForm();
         })

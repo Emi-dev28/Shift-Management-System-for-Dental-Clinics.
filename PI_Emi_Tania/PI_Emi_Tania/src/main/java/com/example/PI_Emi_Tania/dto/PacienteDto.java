@@ -30,15 +30,6 @@ public class PacienteDto {
         this.domicilioDto = domicilioDto;
     }
 
-    public PacienteDto(Long id, String nombre, String apellido, String dni, LocalDate fechaIngreso, DomicilioDto domicilioDto) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-        this.fechaIngreso = fechaIngreso;
-        this.domicilioDto = domicilioDto;
-    }
-
 
     public String getNombre() {
         return nombre;

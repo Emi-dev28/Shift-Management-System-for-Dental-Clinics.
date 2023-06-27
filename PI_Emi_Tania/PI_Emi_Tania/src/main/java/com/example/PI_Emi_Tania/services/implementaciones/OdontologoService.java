@@ -50,7 +50,7 @@ public class OdontologoService implements IOdontologoService {
         List<OdontologoDto> odontologosDtos = odontologos.stream()
                 .map(odontologo-> {
                     // Crear un nuevo objeto OdontologoDto con los datos del odontólogo actual
-                    return new OdontologoDto(odontologo.getId(), odontologo.getNombre(), odontologo.getApellido(), odontologo.getMatricula());
+                    return new OdontologoDto(odontologo.getNombre(), odontologo.getApellido(), odontologo.getMatricula());
                 }).toList();
 
         LOGGER.info("Lista de odontologos: {}", JsonPrinter.toString(odontologosDtos));
