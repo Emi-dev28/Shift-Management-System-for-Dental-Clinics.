@@ -27,7 +27,6 @@ public class Odontologo {
     private String apellido;
 
 
-<<<<<<< HEAD
     public Odontologo(Long id, String matricula, String nombre, String apellido) {
         this.id = id;
         this.matricula = matricula;
@@ -38,16 +37,12 @@ public class Odontologo {
     public Odontologo() {
     }
 
-=======
->>>>>>> 22f1f9b6bfcd36944d1aaf111dc025e8fbac9cd5
     public Odontologo(String matricula, String nombre, String apellido) {
         this.matricula = matricula;
         this.nombre = nombre;
         this.apellido = apellido;
     }
-    public Odontologo() {
-        // Constructor por defecto
-    }
+
 
 
     public Long getId() {
