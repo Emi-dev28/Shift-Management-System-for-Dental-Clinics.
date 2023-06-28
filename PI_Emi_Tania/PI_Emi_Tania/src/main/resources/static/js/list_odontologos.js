@@ -1,19 +1,29 @@
 window.addEventListener('load', function () {
-    const url = '/odontologos'; // URL de la API REST para obtener la lista de odontólogos
+    const url = 'http://localhost:8080/odontologos'; // URL de la API REST para obtener la lista de odontólogos
 
-    fetch(url)
+    const odontologosList = document.querySelector('odontologos-list');
+    console.log(odontologosList);
+      const settings = {
+         method: "GET",
+         headers: {
+            'Content-Type': 'application/json',
+         }
+      }
+   console.log(settings)
+   console.log(url)
+    fetch(url, settings)
        .then(response => response.json())
        .then(data => {
-          const odontologosList = document.getElementById('odontologos-list');
-
+         console.log(data)
           data.forEach(odontologo => {
              const row = document.createElement('tr');
-             row.innerHTML = `
+             const odontologo_campos = `
                 <td>${odontologo.matricula}</td> // definir una celda de datos dentro de una tabla
                 <td>${odontologo.nombre}</td>
                 <td>${odontologo.apellido}</td>
              `;
-             odontologosList.appendChild(row);
+             row.innerHTML += odontologo_campos;
+
           });
        })
        .catch(error => {
