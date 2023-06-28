@@ -6,7 +6,7 @@ window.addEventListener('load', function () {
     console.log(formulario);
    
     formulario.addEventListener('submit', function (event) {
-      event.preventDefault(); // Evita el envío del formulario por defecto
+      event.preventDefault();
   
    
       const formData = {
@@ -16,7 +16,7 @@ window.addEventListener('load', function () {
       };
       
       console.log(formData)
-  
+
       const url = 'http://localhost:8080/odontologos/registrar';
       const settings = {
         method: 'POST',
@@ -25,7 +25,7 @@ window.addEventListener('load', function () {
         },
         body: JSON.stringify(formData),
       };
-  
+
       fetch(url, settings)
         .then(response => {
           console.log(response.status);
@@ -48,7 +48,7 @@ window.addEventListener('load', function () {
           alert.style.display = 'block'
           formulario.reset();
         }).catch(error => {
-      
+
           let errorAlert =
           `<div class="alert alert-danger alert-dismissible">' +
             '<button type="button" class="close" ' +

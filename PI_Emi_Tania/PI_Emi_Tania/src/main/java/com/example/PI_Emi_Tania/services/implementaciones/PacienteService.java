@@ -37,7 +37,7 @@ public class PacienteService implements IPacienteService {
                 .map(paciente-> {
                     Domicilio dom = paciente.getDomicilio();
                     DomicilioDto domicilioDto = objectMapper.convertValue(dom,DomicilioDto.class);
-                    return new PacienteDto(paciente.getId(),paciente.getNombre(), paciente.getApellido(),paciente.getDni(),paciente.getFechaIngreso(),domicilioDto);
+                    return new PacienteDto(paciente.getNombre(), paciente.getApellido(),paciente.getDni(),paciente.getFechaIngreso(),domicilioDto);
         }).toList();
         LOGGER.info("Lista de pacientes: {}", JsonPrinter.toString(pacientesDtos));
         return pacientesDtos;

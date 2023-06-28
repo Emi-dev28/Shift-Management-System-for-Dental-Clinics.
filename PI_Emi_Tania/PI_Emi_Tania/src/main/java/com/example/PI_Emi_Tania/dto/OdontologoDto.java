@@ -12,8 +12,7 @@ public class OdontologoDto {
     private String nombre;
     private String apellido;
 
-    public OdontologoDto(Long id, String matricula, String nombre, String apellido) {
-        this.id = id;
+    public OdontologoDto( String matricula, String nombre, String apellido) {
         this.matricula = matricula;
         this.nombre = nombre;
         this.apellido = apellido;

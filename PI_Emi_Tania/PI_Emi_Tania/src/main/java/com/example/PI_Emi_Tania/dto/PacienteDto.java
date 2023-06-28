@@ -1,8 +1,6 @@
 package com.example.PI_Emi_Tania.dto;
 
-import com.example.PI_Emi_Tania.entity.Domicilio;
 import com.example.PI_Emi_Tania.entity.Paciente;
-import com.example.PI_Emi_Tania.entity.Turno;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -23,15 +21,6 @@ public class PacienteDto {
     }
 
     public PacienteDto(String nombre, String apellido, String dni, LocalDate fechaIngreso, DomicilioDto domicilioDto) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
-        this.fechaIngreso = fechaIngreso;
-        this.domicilioDto = domicilioDto;
-    }
-
-    public PacienteDto(Long id, String nombre, String apellido, String dni, LocalDate fechaIngreso, DomicilioDto domicilioDto) {
-        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
