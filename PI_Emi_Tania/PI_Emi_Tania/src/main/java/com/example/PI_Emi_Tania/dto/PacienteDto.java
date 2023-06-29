@@ -29,6 +29,9 @@ public class PacienteDto {
         this.domicilioDto = domicilioDto;
     }
 
+    public Long getId() {
+        return id;
+    }
 
     public String getNombre() {
         return nombre;

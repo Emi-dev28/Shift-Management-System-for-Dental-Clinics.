@@ -95,5 +95,21 @@ public class PacienteService implements IPacienteService {
         }
     }
 
+    @Override
+    public PacienteDto buscarPacientePorId(Long id) {
+        Paciente pacienteBuscado = pacienteRepository.findById(id).orElse(null);
+        PacienteDto pacienteDto = null;
+        if (pacienteBuscado != null) {
+            DomicilioDto domicilioDto = objectMapper.convertValue(pacienteBuscado.getDomicilio(), DomicilioDto.class);
+            pacienteDto = objectMapper.convertValue(pacienteBuscado, PacienteDto.class);
+            pacienteDto.setDomicilioDto(domicilioDto);
+            LOGGER.info("Paciente encontrado: {}", JsonPrinter.toString(pacienteDto));
+
+        } else LOGGER.info("El id no se encuentra registrado en la base de datos");
+
+        return pacienteDto;
+
+    }
+
 
 }
