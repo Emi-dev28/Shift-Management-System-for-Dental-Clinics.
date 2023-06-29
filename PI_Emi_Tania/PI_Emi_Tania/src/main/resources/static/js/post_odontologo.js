@@ -37,10 +37,10 @@ window.addEventListener('load', function () {
           data.statusText;
           // Si no hay ningún error, mostramos un mensaje indicando que el odontólogo fue agregado
           let successAlert =
-          `<div class="alert alert-success alert-dismissible">' +
-            '<button type="button" class="close" ' +
-            'data-dismiss="alert">&times;</button>' +
-            '<strong> Odontólogo agregado </strong>
+          `<div class="alert alert-success alert-dismissible"> 
+            <button type="button" class="close"  
+            data-dismiss="alert">&times;</button> 
+            <strong> Odontólogo agregado </strong>
             </div>`;
           
           

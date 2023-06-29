@@ -20,7 +20,8 @@ public class PacienteDto {
     public PacienteDto() {
     }
 
-    public PacienteDto(String nombre, String apellido, String dni, LocalDate fechaIngreso, DomicilioDto domicilioDto) {
+    public PacienteDto(Long id, String nombre, String apellido, String dni, LocalDate fechaIngreso, DomicilioDto domicilioDto) {
+        this.id =  id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
