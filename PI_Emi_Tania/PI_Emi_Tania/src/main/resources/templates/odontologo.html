@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <title>Odontologo</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+   <ul class="nav nav-pills">
+      <li class="nav-item">
+         <a class="nav-link" href="/odontologo.html">Operaciones</a>
+      </li>
+   </ul>
+   <div class="row mt-3">
+      <div class="col-sm-4 bg-light p-4 rounded">
+         <h3 class="mb-4">Agregar Odontólogo</h3>
+         <form id="add_new_odontologo">
+            <div class="form-group">
+               <label class="control-label" for="matricula">Matricula:</label>
+               <input type="text" class="form-control" id="matricula" placeholder="Ingrese la matricula" name="matricula" required>
+            </div>
+            <div class="form-group">
+               <label class="control-label" for="nombre">Nombre:</label>
+               <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+               <label class="control-label" for="apellido">Apellido:</label>
+               <input type="text" class="form-control" id="apellido" placeholder="Ingrese el apellido" name="apellido" required>
+            </div>
+            <button type="submit" class="btn btn-danger">Guardar</button>
+         </form>
+         <div id="response" class="mt-4" style="display:none;"></div>
+      </div>
+      
+      <div class="col-sm-4 bg-light p-4 rounded">
+         <h3 class="mb-4">Actualizar Odontólogo</h3>
+         <form id="update_odontologo">
+            <div class="form-group">
+               <label class="control-label" for="update_matricula">Matricula:</label>
+               <input type="text" class="form-control" id="update_matricula" placeholder="Ingrese la nueva matricula" name="update_matricula" required>
+            </div>
+            <div class="form-group">
+               <label class="control-label" for="update_nombre">Nombre:</label>
+               <input type="text" class="form-control" id="update_nombre" placeholder="Ingrese el nuevo nombre" name="update_nombre" required>
+            </div>
+            <div class="form-group">
+               <label class="control-label" for="update_apellido">Apellido:</label>
+               <input type="text" class="form-control" id="update_apellido" placeholder="Ingrese el nuevo apellido" name="update_apellido" required>
+            </div>
+            <button type="submit" class="btn btn-danger">Actualizar</button>
+         </form>
+         <div id="update_response" class="mt-4" style="display:none;"></div>
+      </div>
+      
+      <div class="col-sm-4 bg-light p-4 rounded">
+         <h3 class="mb-4">Eliminar Odontólogo</h3>
+         <form id="delete_odontologo">
+            <div class="form-group">
+               <label class="control-label" for="delete_matricula">Matricula:</label>
+               <input type="text" class="form-control" id="delete_matricula" placeholder="Ingrese la matricula a eliminar" name="delete_matricula" required>
+            </div>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+         </form>
+         <div id="delete_response" class="mt-4" style="display:none;"></div>
+      </div>
+   </div>
+</div>
+
+<div class="container">
+   <h3>Lista de Odontólogos</h3>
+   <table class="table">
+      <thead>
+      <tr>
+         <th>Matrícula</th>
+         <th>Nombre</th>
+         <th>Apellido</th>
+      </tr>
+      </thead>
+      <tbody id="odontologos-list"></tbody>
+   </table>
+</div>
+
+<script type="text/javascript" src="static\js\post_odontologos.js"></script> 
+<script type="text/javascript" src="static\js\list_odontologos.js"></script>
+<script type="text/javascript" src="static\js\update_odontologo.js"></script>
+<script type="text/javascript" src="static\js\delete_odontologo.js"></script>
+</body>
+</html>
+
