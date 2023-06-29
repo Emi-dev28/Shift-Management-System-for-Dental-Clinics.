@@ -13,6 +13,7 @@ import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 import com.example.PI_Emi_Tania.services.ITurnoService;
 import com.example.PI_Emi_Tania.utils.JsonPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,7 @@ public class TurnoService implements ITurnoService {
         this.pacienteService = pacienteService;
         this.odontologoService = odontologoService;
         this.objectMapper = objectMapper;
+        objectMapper.registerModule(new JavaTimeModule());
     }
 
 

@@ -6,6 +6,7 @@ import com.example.PI_Emi_Tania.entity.Odontologo;
 import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 import com.example.PI_Emi_Tania.services.IOdontologoService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class OdontologoService implements IOdontologoService {
     public OdontologoService(ObjectMapper objectMapper, OdontologoRepository odontologoRepository) {
     this.odontologoRepository = odontologoRepository;
     this.objectMapper = new ObjectMapper();
+    objectMapper.registerModule(new JavaTimeModule());
     }
 
     @Override
