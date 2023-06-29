@@ -5,6 +5,7 @@ import com.example.PI_Emi_Tania.dto.DomicilioDto;
 import com.example.PI_Emi_Tania.dto.PacienteDto;
 import com.example.PI_Emi_Tania.entity.Domicilio;
 import com.example.PI_Emi_Tania.entity.Paciente;
+import com.example.PI_Emi_Tania.exceptions.BadRequestException;
 import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 import com.example.PI_Emi_Tania.services.IPacienteService;
 import com.example.PI_Emi_Tania.utils.JsonPrinter;
@@ -44,17 +45,20 @@ public class PacienteService implements IPacienteService {
      }
 
     @Override
-    public PacienteDto guardar(Paciente paciente) {
-        Paciente pacienteNuevo = pacienteRepository.save(paciente);
-        DomicilioDto domicilioDto = objectMapper.convertValue(pacienteNuevo.getDomicilio(),DomicilioDto.class);
-        PacienteDto pacienteDtoNuevo =objectMapper.convertValue(pacienteNuevo,PacienteDto.class);
-        pacienteDtoNuevo.setDomicilioDto(domicilioDto);
-        LOGGER.info ("Se ha agregado un nuevo paciente: {}", JsonPrinter.toString(pacienteDtoNuevo));
-        return pacienteDtoNuevo;
+    public PacienteDto guardar(Paciente paciente) throws BadRequestException {
+
+            Paciente pacienteIngresado = pacienteRepository.save(paciente);
+            DomicilioDto domicilioDto = objectMapper.convertValue(pacienteIngresado.getDomicilio(), DomicilioDto.class);
+            PacienteDto pacienteDto = objectMapper.convertValue(pacienteIngresado, PacienteDto.class);
+            pacienteDto.setDomicilioDto(domicilioDto);
+            LOGGER.info("Se ha agregado un nuevo paciente: {}", JsonPrinter.toString(pacienteDto));
+
+
+        return pacienteDto;
     }
 
     @Override
-    public PacienteDto actualizar(Paciente paciente) {
+    public PacienteDto actualizar(Paciente paciente) throws ResourceNotFoundException {
         Paciente pacienteAActualizar = pacienteRepository.findById(paciente.getId()).orElse(null);
         PacienteDto pacienteActualizadoDto = null;
         if (pacienteAActualizar != null){
@@ -64,24 +68,14 @@ public class PacienteService implements IPacienteService {
             pacienteActualizadoDto = objectMapper.convertValue(pacienteAActualizar, PacienteDto.class);
             pacienteActualizadoDto.setDomicilioDto(domicilioDto);
             LOGGER.info("Se ha actualizado satisfactoriamente el paciente: {}", JsonPrinter.toString(pacienteActualizadoDto));
-        }else LOGGER.error("No se pudo actualizar el paciente por estar registrado en la base de datos");
-
+        }else {
+            LOGGER.error("No se pudo actualizar el paciente por estar registrado en la base de datos");
+            throw new ResourceNotFoundException("El paciente no se encuentra registrado en la base de datos");
+        }
         return pacienteActualizadoDto;
     }
 
-    @Override
-    public PacienteDto buscarPorId(Long id) {
-        Paciente pacienteABuscar = pacienteRepository.findById(id).orElse(null);
-        PacienteDto pacienteDto = null;
-        if (pacienteABuscar != null){
-            DomicilioDto domicilioDto = objectMapper.convertValue(pacienteABuscar.getDomicilio(), DomicilioDto.class);
-            pacienteDto = objectMapper.convertValue(pacienteABuscar,PacienteDto.class);
-            pacienteDto.setDomicilioDto(domicilioDto);
-            LOGGER.info ("Se encontró al paciente: {} ", JsonPrinter.toString(pacienteDto));
-        } else LOGGER.warn("El id que introdujo no se encuentra en la base de datos");
 
-        return pacienteDto;
-    }
 
     @Override
     public void eliminarPorId(Long id) throws ResourceNotFoundException {
@@ -95,20 +89,22 @@ public class PacienteService implements IPacienteService {
         }
     }
 
-    @Override
-    public PacienteDto buscarPacientePorId(Long id) {
-        Paciente pacienteBuscado = pacienteRepository.findById(id).orElse(null);
-        PacienteDto pacienteDto = null;
-        if (pacienteBuscado != null) {
-            DomicilioDto domicilioDto = objectMapper.convertValue(pacienteBuscado.getDomicilio(), DomicilioDto.class);
-            pacienteDto = objectMapper.convertValue(pacienteBuscado, PacienteDto.class);
-            pacienteDto.setDomicilioDto(domicilioDto);
-            LOGGER.info("Paciente encontrado: {}", JsonPrinter.toString(pacienteDto));
 
-        } else LOGGER.info("El id no se encuentra registrado en la base de datos");
+    @Override
+    public PacienteDto buscarPorId(Long id) throws ResourceNotFoundException {
+        Paciente pacienteABuscar = pacienteRepository.findById(id).orElse(null);
+        PacienteDto pacienteDto = null;
+        if (pacienteABuscar != null){
+            DomicilioDto domicilioDto = objectMapper.convertValue(pacienteABuscar.getDomicilio(), DomicilioDto.class);
+            pacienteDto = objectMapper.convertValue(pacienteABuscar,PacienteDto.class);
+            pacienteDto.setDomicilioDto(domicilioDto);
+            LOGGER.info ("Se encontró al paciente: {} ", JsonPrinter.toString(pacienteDto));
+        } else {
+            LOGGER.warn("El id que introdujo no se encuentra en la base de datos");
+            throw new ResourceNotFoundException("El id no se encuentra registrado en la base de datos");
+        }
 
         return pacienteDto;
-
     }
 
 

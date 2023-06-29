@@ -31,8 +31,8 @@ public class TurnoController {
     }
 
     @PostMapping("registrar")
-    public ResponseEntity<TurnoDto> regsitrar(@RequestBody Turno turno) throws BadRequestException {
-        return new ResponseEntity<>(turnoService.guardar(turno), null,HttpStatus.OK);
+    public ResponseEntity<TurnoDto> registrar(@RequestBody Turno turno) throws BadRequestException, ResourceNotFoundException {
+        return new ResponseEntity<>(turnoService.guardar(turno), null,HttpStatus.CREATED);
     }
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id) throws ResourceNotFoundException {

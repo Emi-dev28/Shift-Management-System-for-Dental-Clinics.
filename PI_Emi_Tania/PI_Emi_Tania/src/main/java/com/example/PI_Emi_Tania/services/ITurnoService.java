@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public interface ITurnoService {
-    TurnoDto guardar (Turno turno) throws BadRequestException;
+    TurnoDto guardar (Turno turno) throws BadRequestException, ResourceNotFoundException;
     List<TurnoDto> listar();
     TurnoDto actualizar(Turno turno);
     TurnoDto buscarPorId(Long id);

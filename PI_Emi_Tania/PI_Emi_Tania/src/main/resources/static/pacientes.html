@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Paciente</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href="/index.html">Regresar</a>
+        </li>
+    </ul>
+    <div class="row mt-3">
+        <div class="col-sm-4 bg-light p-4 rounded">
+            <h3 class="mb-4">Agregar Paciente</h3>
+            <form id="add_new_paciente">
+                <div class="form-group">
+                    <label class="control-label" for="id">Id:</label>
+                    <input type="text" class="form-control" id="id" placeholder="Ingrese la matricula" name="id" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="apellido">Apellido:</label>
+                    <input type="text" class="form-control" id="apellido" placeholder="Ingrese el apellido" name="apellido" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="dni">Dni:</label>
+                    <input type="text" class="form-control" id="dni" placeholder="Ingrese el dni" name="dni" required>
+                </div>
+                <button type="submit" class="btn btn-danger">Guardar</button>
+            </form>
+            <div id="response" class="mt-4" style="display:none;"></div>
+        </div>
+
+        <div class="col-sm-4 bg-light p-4 rounded">
+            <h3 class="mb-4">Actualizar Paciente</h3>
+            <form id="update_odontologo">
+                <div class="form-group">
+                    <label class="control-label" for="update_id">ID:</label>
+                    <input type="text" class="form-control" id="update_id" placeholder="Ingrese el ID" name="update_id" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="update_nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="update_nombre" placeholder="Ingrese el nombre a actualizar" name="update_nombre" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="update_apellido">Apellido:</label>
+                    <input type="text" class="form-control" id="update_apellido" placeholder="Ingrese el nuevo apellido" name="update_nombre" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="update_apellido">Dni:</label>
+                    <input type="text" class="form-control" id="update_Dni" placeholder="Ingrese el nuevo Dni" name="update_dni" required>
+                </div>
+                <button type="submit" class="btn btn-danger">Actualizar</button>
+            </form>
+            <div id="update_response" class="mt-4" style="display:none;"></div>
+        </div>
+
+        <div class="col-sm-4 bg-light p-4 rounded">
+            <h3 class="mb-4">Eliminar Paciente</h3>
+            <form id="delete_odontologo">
+                <div class="form-group">
+                    <label class="control-label" for="delete_id">ID:</label>
+                    <input type="text" class="form-control" id="delete_id" placeholder="Ingrese el ID a eliminar" name="delete_id" required>
+                </div>
+
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+            </form>
+            <div id="delete_response" class="mt-4" style="display:none;"></div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h3>Lista de Pacientes</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombrea</th>
+            <th>Apellido</th>
+            <th>Dni</th>
+        </tr>
+        </thead>
+        <tbody id="pacientes-list"></tbody>
+    </table>
+</div>
+
+</body>
+</html>
+
+

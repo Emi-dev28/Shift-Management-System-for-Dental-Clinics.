@@ -26,30 +26,32 @@ public class TurnoService implements ITurnoService {
     private TurnoRepository turnoRepository;
     private PacienteService pacienteService;
     private OdontologoService odontologoService;
+    private ObjectMapper objectMapper;
     private static final Logger LOGGER = LoggerFactory.getLogger(TurnoService.class);
 
 
 
 
     @Autowired
-    public TurnoService(TurnoRepository turnoRepository, ObjectMapper objectMapper, OdontologoService odontologoService) {
+    public TurnoService(TurnoRepository turnoRepository, PacienteService pacienteService, OdontologoService odontologoService, ObjectMapper objectMapper) {
         this.turnoRepository = turnoRepository;
         this.pacienteService = pacienteService;
         this.odontologoService = odontologoService;
+        this.objectMapper = objectMapper;
     }
 
 
     @Override
-    public TurnoDto guardar(Turno turno) throws BadRequestException {
+    public TurnoDto guardar(Turno turno) throws BadRequestException, ResourceNotFoundException {
         TurnoDto turnoDto = null;
-        PacienteDto paciente = pacienteService.buscarPorId(turno.getPaciente().getId());
+        PacienteDto pacienteDto = pacienteService.buscarPorId(turno.getPaciente().getId());
         OdontologoDto odontologoDto = odontologoService.buscarOdontologoPorId(turno.getOdontologo().getId());
-        if(odontologoDto == null || paciente == null){
-        if(paciente == null && odontologoDto == null ){
+        if(odontologoDto == null || pacienteDto == null){
+        if(pacienteDto == null && odontologoDto == null ){
             LOGGER.error("El odontologo y el paciente no se encuentran en la Base de datos");
             throw new BadRequestException("El odontologo y el paciente no se encuentran en la base de datos");
         }
-        else if (paciente == null) {
+        else if (pacienteDto == null) {
             LOGGER.error("El paciente no se ha encontrado en la base de datos");
             throw new BadRequestException("El paciente no se ha encontrado en la base de datos");
         }
