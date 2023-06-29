@@ -6,6 +6,7 @@ window.addEventListener('load', function () {
       event.preventDefault();
   
       const formData = {
+        id:document.querySelector('#update_id').value,
         matricula: document.querySelector('#update_matricula').value,
         nombre: document.querySelector('#update_nombre').value,
         apellido: document.querySelector('#update_apellido').value,

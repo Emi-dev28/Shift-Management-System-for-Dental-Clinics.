@@ -14,7 +14,7 @@
 <div class="container">
    <ul class="nav nav-pills">
       <li class="nav-item">
-         <a class="nav-link" href="/odontologo.html">Operaciones</a>
+         <a class="nav-link" href="/index.html">Regresar</a>
       </li>
    </ul>
    <div class="row mt-3">
@@ -42,6 +42,10 @@
          <h3 class="mb-4">Actualizar Odontólogo</h3>
          <form id="update_odontologo">
             <div class="form-group">
+               <label class="control-label" for="update_id">ID:</label>
+               <input type="text" class="form-control" id="update_id" placeholder="Ingrese el ID" name="update_id" required>
+            </div>
+            <div class="form-group">
                <label class="control-label" for="update_matricula">Matricula:</label>
                <input type="text" class="form-control" id="update_matricula" placeholder="Ingrese la matricula a actualizar" name="update_matricula" required>
             </div>
@@ -62,9 +66,10 @@
          <h3 class="mb-4">Eliminar Odontólogo</h3>
          <form id="delete_odontologo">
             <div class="form-group">
-               <label class="control-label" for="delete_matricula">Matricula:</label>
-               <input type="text" class="form-control" id="delete_matricula" placeholder="Ingrese la matricula a eliminar" name="delete_matricula" required>
+               <label class="control-label" for="delete_id">ID:</label>
+               <input type="text" class="form-control" id="delete_id" placeholder="Ingrese el ID a eliminar" name="delete_id" required>
             </div>
+            
             <button type="submit" class="btn btn-danger">Eliminar</button>
          </form>
          <div id="delete_response" class="mt-4" style="display:none;"></div>
@@ -77,6 +82,7 @@
    <table class="table">
       <thead>
       <tr>
+         <th>ID</th>
          <th>Matrícula</th>
          <th>Nombre</th>
          <th>Apellido</th>
@@ -92,4 +98,5 @@
 <script type="text/javascript" src="\js\delete_odontologo.js"></script>
 </body>
 </html>
+
 

@@ -18,6 +18,7 @@ window.addEventListener('load', function () {
          console.log(data)
           data.forEach(odontologo => {
             const rows = `<tr>
+            <td> ${odontologo.id} </td>
             <td> ${odontologo.matricula} </td>
             <td> ${odontologo.nombre} </td>
             <td> ${odontologo.apellido} </td>
