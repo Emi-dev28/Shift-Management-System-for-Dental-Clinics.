@@ -10,6 +10,7 @@ import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 import com.example.PI_Emi_Tania.services.IPacienteService;
 import com.example.PI_Emi_Tania.utils.JsonPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class PacienteService implements IPacienteService {
     public PacienteService(ObjectMapper objectMapper, PacienteRepository pacienteRepository) {
         this.pacienteRepository = pacienteRepository;
         this.objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
     }
 
 

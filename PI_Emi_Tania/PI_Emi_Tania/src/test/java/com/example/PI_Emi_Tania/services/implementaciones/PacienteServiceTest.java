@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -26,7 +26,7 @@ class PacienteServiceTest {
     @Order(1)
     void deberiaRegistrarUnPaciente() throws IllegalArgumentException, BadRequestException {
         Domicilio dom = new Domicilio(1L, "Roman", 1249, "Moron", "Buenos Aires");
-        LocalDate fecha = LocalDate.now();
+        LocalDate fecha = LocalDate.of(2024,6,29);
         Paciente pacienteARegistrar = new Paciente(1L,"Emiliano", "Cellilli", "42723977",fecha , dom);
         PacienteDto pacienteDto = pacienteService.guardar(pacienteARegistrar);
 
@@ -47,7 +47,7 @@ class PacienteServiceTest {
     @Order(3)
     void deberiaListarPacientes(){
         List<PacienteDto> pacienteDtoList = pacienteService.listarPacientes();
-        assertFalse(pacienteDtoList.isEmpty());
+        Assertions.assertFalse(pacienteDtoList.isEmpty());
     }
     @Test
     @Order(4)
@@ -57,7 +57,7 @@ class PacienteServiceTest {
         Paciente paciente = new Paciente(1L, "German", "Grisolia", "33456890", fecha, domicilio);
         pacienteService.guardar(paciente);
         pacienteService.eliminarPorId(paciente.getId());
-        assertThrows(ResourceNotFoundException.class, () -> {
+        Assertions.assertThrows(ResourceNotFoundException.class, () -> {
             pacienteService.buscarPorId(paciente.getId());
         });
     }
