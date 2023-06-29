@@ -27,7 +27,7 @@ class OdontologoServiceTest {
     @Order(1)
     void deberiaInsertarUnOdontologo() throws BadRequestException {
         // Creación de un objeto Odontologo para insertar
-        Odontologo odontologoAInsertar = new Odontologo("AB-466464646464646", "patricia", "Lopez");
+        Odontologo odontologoAInsertar = new Odontologo("AB-34567890", "Pavel", "Perez");
         // Llamada al método para registrar el Odontologo y obtener el resultado
         OdontologoDto odontologoDto = odontologoService.registrarOdontologo(odontologoAInsertar);
 
@@ -41,7 +41,7 @@ class OdontologoServiceTest {
     @Order(2)
     void cuandoNoSeCumplaElFormatoDeMatricula_noDeberiaInsertarElOdontologo() {
         // Creación de un objeto Odontologo con formato de matrícula incorrecto
-        Odontologo odontologo = new Odontologo("3433333", "patricia", "Lopez");
+        Odontologo odontologo = new Odontologo("12-3433333", "Pedro", "Baez");
 
         // Verifica que se lance una ConstraintViolationException al intentar registrar el Odontologo
         Assertions.assertThrows(ConstraintViolationException.class, () -> odontologoService.registrarOdontologo(odontologo));

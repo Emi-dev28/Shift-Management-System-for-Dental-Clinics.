@@ -5,17 +5,11 @@ window.addEventListener('load', function () {
     deleteForm.addEventListener('submit', function (event) {
       event.preventDefault();
   
-      const formData = {
-        id: document.querySelector('#delete_id').value,
-      };
+      const id = document.querySelector('#delete_id').value;
   
-      const url = 'http://localhost:8080/odontologos/eliminar/';
+      const url = `http://localhost:8080/odontologos/eliminar/${id}`;
       const settings = {
         method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
       };
   
       fetch(url, settings)
@@ -31,7 +25,7 @@ window.addEventListener('load', function () {
           let successAlert =
             `<div class="alert alert-success alert-dismissible"> 
               <button type="button" class="close" data-dismiss="alert">&times;</button> 
-              <strong> Odontólogo eliminado </strong>
+              <strong>Odontólogo eliminado</strong>
             </div>`;
   
           deleteAlert.innerHTML += successAlert;
