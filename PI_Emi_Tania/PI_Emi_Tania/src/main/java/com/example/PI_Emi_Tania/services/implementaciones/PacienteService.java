@@ -27,8 +27,8 @@ public class PacienteService implements IPacienteService {
     @Autowired
     public PacienteService(ObjectMapper objectMapper, PacienteRepository pacienteRepository) {
         this.pacienteRepository = pacienteRepository;
-        this.objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule());
+        this.objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+
     }
 
 
