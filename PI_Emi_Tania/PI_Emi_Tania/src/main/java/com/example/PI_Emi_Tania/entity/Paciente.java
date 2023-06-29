@@ -27,7 +27,7 @@ public class Paciente {
     private String apellido;
     @Size(max = 12)
     @NotNull
-    @Pattern(regexp = "[/d]")
+    @Pattern(regexp = "[\\d{8}]")
     private String dni;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @FutureOrPresent

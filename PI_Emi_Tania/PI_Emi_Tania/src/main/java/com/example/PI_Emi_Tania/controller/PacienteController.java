@@ -47,7 +47,10 @@ public class PacienteController {
     public void eliminar(@PathVariable Long id) throws ResourceNotFoundException {
         pacienteService.eliminarPorId(id);
     }
+    public ResponseEntity<PacienteDto> buscarPacientePorId(@PathVariable Long id) {
 
+        return new ResponseEntity<>(pacienteService.buscarPacientePorId(id), null, HttpStatus.OK);
+    }
     @GetMapping
     public List<PacienteDto> listar() {
         return pacienteService.listarPacientes();
