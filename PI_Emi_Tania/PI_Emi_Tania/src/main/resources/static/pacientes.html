@@ -21,10 +21,7 @@
         <div class="col-sm-4 bg-light p-4 rounded">
             <h3 class="mb-4">Agregar Paciente</h3>
             <form id="add_new_paciente">
-                <div class="form-group">
-                    <label class="control-label" for="id">Id:</label>
-                    <input type="text" class="form-control" id="id" placeholder="Ingrese la matricula" name="id" required>
-                </div>
+                
                 <div class="form-group">
                     <label class="control-label" for="nombre">Nombre:</label>
                     <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" name="nombre" required>
@@ -36,6 +33,19 @@
                 <div class="form-group">
                     <label class="control-label" for="dni">Dni:</label>
                     <input type="text" class="form-control" id="dni" placeholder="Ingrese el dni" name="dni" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="fecha_ingreso">Fecha de ingreso:</label>
+                    <input type="date" class="form-control" id="fecha_ingreso" name="fecha_ingreso" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="domicilio">Domicilio:</label>
+                    <div id="domicilio">
+                        <input type="text" class="form-control" id="calle" placeholder="Ingrese la calle" name="calle" required>
+                        <input type="text" class="form-control" id="numero" placeholder="Ingrese el número" name="numero" required>
+                        <input type="text" class="form-control" id="localidad" placeholder="Ingrese la localidad" name="localidad" required>
+                        <input type="text" class="form-control" id="provincia" placeholder="Ingrese la provincia" name="provincia" required>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-danger">Guardar</button>
             </form>
@@ -51,15 +61,19 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="update_nombre">Nombre:</label>
-                    <input type="text" class="form-control" id="update_nombre" placeholder="Ingrese el nombre a actualizar" name="update_nombre" required>
+                    <input type="text" class="form-control" id="update_nombre" placeholder="Ingrese el nuevo nombre" name="update_nombre" required>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="update_apellido">Apellido:</label>
-                    <input type="text" class="form-control" id="update_apellido" placeholder="Ingrese el nuevo apellido" name="update_nombre" required>
+                    <input type="text" class="form-control" id="update_apellido" placeholder="Ingrese el nuevo apellido" name="update_apellido" required>
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="update_apellido">Dni:</label>
-                    <input type="text" class="form-control" id="update_Dni" placeholder="Ingrese el nuevo Dni" name="update_dni" required>
+                    <label class="control-label" for="update_dni">Dni:</label>
+                    <input type="text" class="form-control" id="update_dni" placeholder="Ingrese el nuevo Dni" name="update_dni" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="update_fecha_ingreso">Nueva fecha de ingreso:</label>
+                    <input type="date" class="form-control" id="update_fecha_ingreso" placeholder="Ingrese la nueva fecha de Ingreso" name="update_fecha_ingreso" required>
                 </div>
                 <button type="submit" class="btn btn-danger">Actualizar</button>
             </form>
@@ -87,16 +101,22 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Nombrea</th>
+            <th>Nombre</th>
             <th>Apellido</th>
             <th>Dni</th>
+            <th>Calle</th>
+            <th>Número</th>
+            <th>Localidad</th>
+            <th>Provincia</th>
         </tr>
         </thead>
         <tbody id="pacientes-list"></tbody>
     </table>
 </div>
 
+<script type="text/javascript" src="js/paciente/post_paciente.js"></script>
+<script type="text/javascript" src="js/paciente/list_pacientes.js"></script>
+<script type="text/javascript" src="js/paciente/update_paciente.js"></script>
+<script type="text/javascript" src="js/paciente/delete_paciente.js"></script>
 </body>
 </html>
-
-

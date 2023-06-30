@@ -1,4 +1,4 @@
-window.addEventListener('load', function () {
+  window.addEventListener('load', function () {
     const deleteAlert = document.querySelector('#delete_response');
     const deleteForm = document.querySelector('#delete_odontologo');
   
@@ -16,11 +16,10 @@ window.addEventListener('load', function () {
         .then(response => {
           console.log(response.status);
           console.log(response.statusText);
-          return response.json();
+          return response.text();
         })
         .then(data => {
           console.log(data);
-          data.statusText;
           // Si no hay ningún error, mostramos un mensaje indicando que el odontólogo fue eliminado
           let successAlert =
             `<div class="alert alert-success alert-dismissible"> 
