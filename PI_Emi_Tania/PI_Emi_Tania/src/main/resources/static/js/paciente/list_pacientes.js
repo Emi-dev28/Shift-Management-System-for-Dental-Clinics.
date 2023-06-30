@@ -16,17 +16,17 @@ window.addEventListener('load', function () {
       .then(data => {
         console.log(data);
         data.forEach(paciente => {
-          const rows = `<tr>
+        const rows = `<tr>
             <td>${paciente.id}</td>
             <td>${paciente.nombre}</td>
             <td>${paciente.apellido}</td>
             <td>${paciente.dni}</td>
-            <td>${paciente.fecha_ingreso}</td>
-            <td>${paciente.domicilio.calle}</td>
-            <td>${paciente.domicilio.numero}</td>
-            <td>${paciente.domicilio.localidad}</td>
-            <td>${paciente.domicilio.provincia}</td>
-                      </tr>`;
+            <td>${paciente.fechaIngreso}</td>
+            <td>${paciente.domicilio?.calle}</td>
+            <td>${paciente.domicilio?.numero}</td>
+            <td>${paciente.domicilio?.localidad}</td>
+            <td>${paciente.domicilio?.provincia}</td>
+          </tr>`;
           pacientesList.innerHTML += rows;
         });
       })
