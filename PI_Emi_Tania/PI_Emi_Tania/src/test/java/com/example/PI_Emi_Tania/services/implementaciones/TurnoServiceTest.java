@@ -42,7 +42,7 @@ class TurnoServiceTest {
      @BeforeAll
      public static void init(){
          odontologo = new Odontologo("Ad-123423423", "German", "Gonzalez");
-         paciente = new Paciente(1L, "Emiliano", "Cellilli", "42723977", LocalDate.of(2023, 10,4), new Domicilio(1L, "Roca", 1423, "Moron", "Buenos Aires"));
+         paciente = new Paciente(1L, "Emiliano", "Cellilli", "427239778888", LocalDate.of(2023, 10,4), new Domicilio(1L, "Roca", 1423, "Moron", "Buenos Aires"));
      }
     @Test
     @Order(1)
