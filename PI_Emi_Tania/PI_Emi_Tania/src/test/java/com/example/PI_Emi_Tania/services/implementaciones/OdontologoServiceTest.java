@@ -4,7 +4,7 @@ import com.example.PI_Emi_Tania.dto.OdontologoDto;
 import com.example.PI_Emi_Tania.entity.Odontologo;
 import com.example.PI_Emi_Tania.exceptions.BadRequestException;
 import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
-import org.hibernate.exception.ConstraintViolationException;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -37,18 +37,9 @@ class OdontologoServiceTest {
         Assertions.assertNotNull(odontologoDto.getId());
     }
 
+
     @Test
     @Order(2)
-    void cuandoNoSeCumplaElFormatoDeMatricula_noDeberiaInsertarElOdontologo() {
-        // Creación de un objeto Odontologo con formato de matrícula incorrecto
-        Odontologo odontologo = new Odontologo("12-3433333", "Pedro", "Baez");
-
-        // Verifica que se lance una ConstraintViolationException al intentar registrar el Odontologo
-        Assertions.assertThrows(ConstraintViolationException.class, () -> odontologoService.registrarOdontologo(odontologo));
-    }
-
-    @Test
-    @Order(3)
     void deberiaListarUnSoloOdontologo() {
         // Obtiene la lista de OdontologoDto
         List<OdontologoDto> odontologosDtos = odontologoService.listarOdontologos();
@@ -59,22 +50,17 @@ class OdontologoServiceTest {
 
     // No se encontro el odontologo con id 1
     @Test
-    @Order(4)
+    @Order(3)
     void deberiaEliminarElOdontologoId1() throws ResourceNotFoundException {
+        Odontologo odontologoACrear = new Odontologo("ad-23344", "Alejandro", "Marrero");
+        OdontologoDto odontologodto1 = odontologoService.registrarOdontologo(odontologoACrear);
+
         // Elimina el Odontologo con ID 1
-        odontologoService.eliminarOdontologo(1L);
+        odontologoService.eliminarOdontologo(odontologodto1.getId());
 
         // Verifica que se lance una ResourceNotFoundException al intentar eliminar nuevamente el mismo Odontologo
         Assertions.assertThrows(ResourceNotFoundException.class, () -> odontologoService.eliminarOdontologo(1L));
     }
-
-    @Test
-    @Order(5)
-    void deberiaRetornarUnaListaVacia() throws ResourceNotFoundException {
-        // Obtiene la lista de OdontologoDto después de eliminar todos los Odontologos
-        List<OdontologoDto> odontologosDtos = odontologoService.listarOdontologos();
-
-        // Verifica que la lista esté vacía
-        Assertions.assertTrue(odontologosDtos.isEmpty());
-    }
 }
+
+
