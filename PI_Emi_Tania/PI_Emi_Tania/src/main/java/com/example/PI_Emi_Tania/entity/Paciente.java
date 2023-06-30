@@ -25,7 +25,7 @@ public class Paciente {
     @NotNull
     private String apellido;
     @Pattern(regexp = "\\d+", message = "El campo dni sólo admite caracteres numéricos")
-    @Length(max = 12)
+    @Length(min=8,max = 12)
     @NotBlank(message = "Debe especificarse el dni del paciente")
     private String dni;
 
