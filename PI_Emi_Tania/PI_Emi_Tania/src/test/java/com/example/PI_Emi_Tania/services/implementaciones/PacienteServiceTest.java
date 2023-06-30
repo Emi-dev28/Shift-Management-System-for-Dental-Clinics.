@@ -35,7 +35,7 @@ class PacienteServiceTest {
     void deberiaRegistrarUnPaciente() throws IllegalArgumentException, BadRequestException {
         Domicilio dom = new Domicilio(1L, "Roman", 1249, "Moron", "Buenos Aires");
         LocalDate fecha = LocalDate.of(2024,6,29);
-        Paciente pacienteARegistrar = new Paciente(1L,"Emiliano", "Cellilli", "427239773",fecha , dom);
+        Paciente pacienteARegistrar = new Paciente(1L,"Emiliano", "Cellilli", "427239773888",fecha , dom);
         PacienteDto pacienteDto = pacienteService.guardar(pacienteARegistrar);
 
         // Acá verifico que el resultado no sea nulo
