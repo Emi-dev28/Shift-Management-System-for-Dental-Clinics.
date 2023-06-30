@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 
@@ -69,7 +70,7 @@ public class TurnoService implements ITurnoService {
         }
         return turnoDto;
     }
-
+    @Transactional
     @Override
     public List<TurnoDto> listar() {
         List<Turno> turnos = turnoRepository.findAll();
@@ -104,7 +105,7 @@ public class TurnoService implements ITurnoService {
         else LOGGER.error("El id no se encuentra registrado en la base de datos");
         return turnoDto;
     }
-
+    @Transactional
     @Override
     public void eliminar(Long id) throws ResourceNotFoundException {
         if (buscarPorId(id) != null){
