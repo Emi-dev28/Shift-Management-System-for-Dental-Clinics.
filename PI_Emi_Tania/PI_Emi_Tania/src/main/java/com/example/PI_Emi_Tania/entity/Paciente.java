@@ -1,11 +1,10 @@
 package com.example.PI_Emi_Tania.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
-import javax.validation.constraints.FutureOrPresent;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 @Entity
 @Table(name="PACIENTES")
@@ -25,10 +24,11 @@ public class Paciente {
     @Size(min=3, max=25, message = "El apellido debe contener entre 3 y 25 caracteres")
     @NotNull
     private String apellido;
-    @Size(max = 12)
-    @NotNull
-    @Pattern(regexp = "[\\d{8}]")
+    @Pattern(regexp = "\\d+", message = "El campo dni sólo admite caracteres numéricos")
+    @Length(max = 12)
+    @NotBlank(message = "Debe especificarse el dni del paciente")
     private String dni;
+
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @FutureOrPresent
     private LocalDate fechaIngreso;

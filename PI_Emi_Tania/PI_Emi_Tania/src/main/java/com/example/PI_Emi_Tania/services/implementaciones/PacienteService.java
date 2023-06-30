@@ -48,7 +48,12 @@ public class PacienteService implements IPacienteService {
 
     @Override
     public PacienteDto guardar(Paciente paciente) throws BadRequestException {
+        String dni = paciente.getDni();
 
+
+        if (!dni.matches("\\d{12}")) {
+            throw new BadRequestException("El formato del DNI no es válido");
+        }
             Paciente pacienteIngresado = pacienteRepository.save(paciente);
             DomicilioDto domicilioDto = objectMapper.convertValue(pacienteIngresado.getDomicilio(), DomicilioDto.class);
             PacienteDto pacienteDto = objectMapper.convertValue(pacienteIngresado, PacienteDto.class);
