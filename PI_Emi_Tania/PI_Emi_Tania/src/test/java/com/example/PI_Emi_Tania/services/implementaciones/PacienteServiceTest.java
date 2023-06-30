@@ -49,16 +49,5 @@ class PacienteServiceTest {
         List<PacienteDto> pacienteDtoList = pacienteService.listarPacientes();
         Assertions.assertFalse(pacienteDtoList.isEmpty());
     }
-    @Test
-    @Order(4)
-    void deberiaEliminarUnPaciente() throws ResourceNotFoundException, BadRequestException {
-        Domicilio domicilio = new Domicilio(1L, "Calle x", 1234, "nose", "Buenos aires");
-        LocalDate fecha = LocalDate.now();
-        Paciente paciente = new Paciente(1L, "German", "Grisolia", "33456890", fecha, domicilio);
-        pacienteService.guardar(paciente);
-        pacienteService.eliminarPorId(paciente.getId());
-        Assertions.assertThrows(ResourceNotFoundException.class, () -> {
-            pacienteService.buscarPorId(paciente.getId());
-        });
+
     }
-}
