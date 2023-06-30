@@ -41,6 +41,8 @@ class OdontologoServiceTest {
     @Test
     @Order(2)
     void deberiaListarUnSoloOdontologo() {
+        Odontologo odontologoACrear = new Odontologo("ad-23344", "Alejandro", "Marrero");
+        OdontologoDto odontologodto1 = odontologoService.registrarOdontologo(odontologoACrear);
         // Obtiene la lista de OdontologoDto
         List<OdontologoDto> odontologosDtos = odontologoService.listarOdontologos();
 

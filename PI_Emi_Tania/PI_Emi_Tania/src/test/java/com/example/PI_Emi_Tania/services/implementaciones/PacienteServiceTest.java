@@ -1,17 +1,11 @@
 package com.example.PI_Emi_Tania.services.implementaciones;
 import com.example.PI_Emi_Tania.dto.PacienteDto;
 import com.example.PI_Emi_Tania.entity.Domicilio;
-import com.example.PI_Emi_Tania.entity.Odontologo;
 import com.example.PI_Emi_Tania.entity.Paciente;
-
-
 import com.example.PI_Emi_Tania.exceptions.BadRequestException;
-import com.example.PI_Emi_Tania.exceptions.ResourceNotFoundException;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.Assert;
-
 import java.time.LocalDate;
 import java.util.List;
 
